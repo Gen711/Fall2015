@@ -8,9 +8,13 @@ The methods, applications, and implications of genomics--the analysis of whole g
 2. Contact Information:
 
 Professor Matthew MacManes
+
 189 Rudman Hall
+
 603-862-4052
+
 Matthew.MacManes@unh.edu
+
 Twitter: @macmanes
 
 3. Lecture: MWF 11:10-12:00PM Rudman G89
@@ -18,9 +22,12 @@ Twitter: @macmanes
 5. Web Resources:
 
 Blackboard: I will use this for grades
+
 Blog: http://genomebio.org/Gen711/
-#Gen711: I will try to use this hashtag to pass along relevant and or interesting material
+
 Google: everything you'll learn this semester has been discussed on the internet.Use it!
+
 SeqAnswers.com: The forums are really great.
+
 Summer workshop http://angus.readthedocs.org/en/2014 and http://angus.readthedocs.org/en/2015
 
