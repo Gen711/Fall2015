@@ -26,9 +26,11 @@ Genetics 711/811 | Bioinformatics and Genomics
     
     **Weekly Assignments:** These are assigned in lab, and typically involve some sort of sequence analysis and short answer questions. There will be 5 throughout the semester worth 20 points each (100pts total). You may work in groups, but you must submit your own report. These will be due 1 week after they are assigned, typically on Tuesday, unless otherwise instructed. **NO late assignments accepted**
 
-    **Exams:** There will be 2 exams covering both lecture and lab material. Each will be worth 150 points. The dates for these will be October 14 and December 2. Makeup exams will be permitted only under extreme documented circumstances, or by prior approval (> 1 week) from Prof. MacManes.
+    **Exams:** There will be 2 exams covering both lecture and lab material. Each will be worth 150 points. The dates for these will be October 9 and November 20. Makeup exams will be permitted only under extreme documented circumstances, or by prior approval (> 1 week) from Prof. MacManes.
 
     **Final Project:** The final project will consist of an oral presentation and written report of a topic related to genomics and bioinformatics. Projects must incorporate an implementation of the computational techniques we've learned about. The final project will be worth 200 points (150 written/50 oral). Oral presentations will occur during the last 2 days of class. Written reports will be due on the last day of class. You may work in groups (< 5 members - mix of grad and undergrad), with the understanding that expectations increase with group size, given division of labor. More details will be provided later in the semester.
+    
+    **Participation:** Attendance to the lab portion of the class is critical. We have 13 lab sessions. 10 points each, maximum of 120 points may be earned. One lab may be missed without penalty. Additional missed labs may be made up with prior approval (> 1 week) from Prof. MacManes 
 
 6. Materials Needed
 
@@ -46,9 +48,9 @@ Genetics 711/811 | Bioinformatics and Genomics
             Exams          300 
             Final Project  150 
             Homework       100  
-            Participation  100  
+            Participation  120  
             =============  ============== 
-            Total Points    600
+            Total Points   620
 
 
 8. Course Policies
