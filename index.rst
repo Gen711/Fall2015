@@ -23,4 +23,4 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Lecture 1 <files/Lecture_1.pdf>`
     
 6. Lab lessons
-    - Lab 1: :doc:`lab1.blast`
+    - Lab 1: :doc:`labs/Lab0_blast`
