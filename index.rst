@@ -19,8 +19,10 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 ---
 
-4. Lecture Materials.
+4. :doc:`Syllabus`
+
+5. Lecture Materials.
     -  :download:`Lecture 1 <files/Lecture_1.pdf>`
     
-5. Lab lessons
+6. Lab lessons
     - Lab 1: :doc:`lab1.blast`
