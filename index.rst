@@ -17,7 +17,7 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 3. Lab: Friday 3:10-5:00PM Hewitt 301
 
-4. :doc:`Syllabus`
+4. Syllabus :doc:`Syllabus`
 
 5. Lecture Materials.
     -  :download:`Lecture 1 <files/Lecture_1.pdf>`

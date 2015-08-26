@@ -1,5 +1,5 @@
 =========================================================
-SYLLABUS: Genetics 711/811 | Bioinformatics and Genomics
+Genetics 711/811 | Bioinformatics and Genomics
 =========================================================
 
 0. Course Description:
