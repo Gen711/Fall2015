@@ -11,7 +11,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Office: 189 Rudman Hall
     - Phone: 603-862-4052
     - Email (preferred): Matthew.MacManes@unh.edu
-    - Twitter: @macmanes
+    - Twitter: @MacManes
+    - Office hours: Tues/Fri 8-10am in 189 Rudman, or by appt. Schedule at http://genomebio.org/office-hours/
 
 2. Lecture: MWF 11:10-12:00PM Rudman G89
 3. Lab: Friday 3:10-5:00PM Hewitt 301
