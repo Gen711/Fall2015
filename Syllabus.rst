@@ -17,6 +17,7 @@ Genetics 711/811 | Bioinformatics and Genomics
 3. Lab: Friday 3:10-5:00PM Hewitt 301
 4. Web Resources:
 
+    - Website: http://gen711.readthedocs.org
     - Blackboard: I will use this for grades
     - Blog: http://genomebio.org/Gen711/
     - Google: everything you'll learn this semester has been discussed on the internet.Use it!
@@ -104,10 +105,4 @@ Genetics 711/811 | Bioinformatics and Genomics
                     +---------------------------+------------+-------------------------------------------------+----------------------------+
                     | 07Dec                     |            | Ethics & Final Project Presentations            | No Lab                     |
                     +---------------------------+------------+-------------------------------------------------+----------------------------+
-            
-    
-    
-
-
-
 
