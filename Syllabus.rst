@@ -17,11 +17,12 @@ Genetics 711/811 | Bioinformatics and Genomics
 3. Lab: Friday 3:10-5:00PM Hewitt 301
 4. Web Resources:
 
-    - Blackboard: I will use this for grades
+    - Website: http://gen711.readthedocs.org
+    - Blackboard: I will use this horrible site for grades, only!
     - Blog: http://genomebio.org/Gen711/
-    - Google: everything you'll learn this semester has been discussed on the internet.Use it!
-    - SeqAnswers.com: The forums are really great.
-    - Summer workshop http://angus.readthedocs.org/en/2014 and http://angus.readthedocs.org/en/2015
+    - Google: everything you'll learn this semester has been discussed on the internet. Use it!
+    - http://SeqAnswers.com: The forums are really great.
+    - Summer workshop website that has lots of good info: http://angus.readthedocs.org/en/2014 and http://angus.readthedocs.org/en/2015
 5. Assignments and Exams
     
     **Weekly Assignments:** These are assigned in lab, and typically involve some sort of sequence analysis and short answer questions. There will be 5 throughout the semester worth 20 points each (100pts total). You may work in groups, but you must submit your own report. These will be due 1 week after they are assigned, typically on Tuesday, unless otherwise instructed. **NO late assignments accepted**
