@@ -36,7 +36,7 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 6. Materials Needed
 
-    **Required Textbook:** ``PRACTICAL COMPUTING FOR BIOLOGISTS`` 1st edition by Haddock and Dunn. It is available on Amazon new, used and for rent. I think that there is a Kindle version if that is your thing! It should also be available in the campus bookstore, but you may pay more there!
+    **Required Textbook:** ``PRACTICAL COMPUTING FOR BIOLOGISTS`` (PCFB) 1st edition by Haddock and Dunn. It is available on Amazon new, used and for rent. I think that there is a Kindle version if that is your thing! It should also be available in the campus bookstore, but you may pay more there!
 
     **Amazon Web services:** For lab exercises, we will use the Amazon Computer Cloud (EC2). You will need to set up an account during the first lab, and will be given $100 to pay for the analyses you will run this semester. The EC2 interface will work properly in OSX and Linux operating systems. For those of you with Windows computers, you will need to install a terminal emulator (MobaXterm is one option), or use the OSX computers in the computer lab.
 
@@ -48,11 +48,11 @@ Genetics 711/811 | Bioinformatics and Genomics
             Item           Maximum Points    
             =============  ==============  
             Exams          300 
-            Final Project  150 
+            Final Project  200 
             Homework       100  
             Participation  120  
             =============  ============== 
-            Total Points   620
+            Total Points   670
 
 
 8. Course Policies
@@ -107,9 +107,4 @@ Genetics 711/811 | Bioinformatics and Genomics
                     | 07Dec                     |            | Ethics & Final Project Presentations            | No Lab                     |
                     +---------------------------+------------+-------------------------------------------------+----------------------------+
             
-    
-    
-
-
-
 
