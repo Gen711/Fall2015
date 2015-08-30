@@ -25,3 +25,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     
 6. Lab lessons
     - Lab 0: :doc:`labs/Lab0_blast`
+
+7. Reading
+    - Lab reading for 9/4. PCFB Chapter 4
+    - Lecture reading for 9/2 and 9/4. TBA. 
