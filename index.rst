@@ -22,10 +22,11 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 5. Lecture Materials.
     -  :download:`Lecture 0 <files/Lecture_1.pdf>`
+    -  :download:`Lecture 1 <files/Lecture_2.pdf>`
     
 6. Lab lessons
     - Lab 0: :doc:`labs/Lab0_blast`
 
 7. Reading
-    - Lab reading for 9/4. PCFB Chapter 4
+    - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
     - :download:`Week 1 lecture Reading <files/Week1-reading.pdf>` 
