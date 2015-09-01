@@ -28,4 +28,4 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4
-    - Lecture reading for 9/2 and 9/4. TBA. 
+    - :download:`Week 1 lecture Reading <files/Week1-reading.pdf>` 

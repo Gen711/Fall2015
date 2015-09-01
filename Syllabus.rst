@@ -52,7 +52,7 @@ Genetics 711/811 | Bioinformatics and Genomics
             Homework       100  
             Participation  120  
             =============  ============== 
-            Total Points   670
+            Total Points   720
 
 
 8. Course Policies
