@@ -26,8 +26,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Lecture 4Sept15 <files/Lec_4Sept15.pdf>`
     
 6. Lab lessons
-    - :download:`Launch and EC2 Instance <files/Lanch_AMI.pdf>`
-    - Getting Started with UNIX: :doc:`labs/getting_started`
+    - :doc:`labs/getting_started`
+    - :download:`Launch an EC2 Instance <files/Lanch_AMI.pdf>`
     - Lab 4Sept15: :doc:`labs/Lab0_blast`
 
 7. Reading
