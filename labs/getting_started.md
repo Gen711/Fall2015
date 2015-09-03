@@ -17,12 +17,19 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 --
 
 > `pwd` print working directory
+
 > `ls` list directory contents
+
 > `nano` open up a text editor
+
 > `mkdir` make a directory (folder)
+
 > `cd` Change directories
+
 > `rm` delete a file
+
 > `mv` move a file 
+
 > `cp` copy a file
 
 >the `pwd` command returns your current location.
@@ -84,26 +91,6 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 
 >there are a few other commands that you should be familiar with: `sort`, `cat`, `clear`, `tail`, `history`. Try googling and using `man` to figure them out.
 
-Downloading Data and Stuff
---
-
->download something from the web. You're using the `wget` command. You're downloading the SwissProt database. See http://www.ebi.ac.uk/uniprot
-
-    mkdir swissprot
-    cd swissprot
-    wget ftp://ftp.ebi.ac.uk/pub/databases/uniprot/knowledgebase/uniprot_sprot.fasta.gz
-
--
-
->It will take a few minutes to download. After it's downloaded, you'll need to extract it. Files ending in `.gz` are compressed, just like `.zip`, which is a type of file compression you may be more familiar with.
-
-	gzip -d uniprot_sprot.fasta.gz
-
--
-
->Can you tell me what type of file this is? Use the commands we used above to look at the 1st few lines.
-
-	???
 
 >There is some info that is complementary to this material found here: <a href="http://swcarpentry.github.io/2014-08-21-upenn/novice/ref/01-shell.html">http://swcarpentry.github.io/2014-08-21-upenn/novice/ref/01-shell.html</a>
 
