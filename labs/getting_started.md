@@ -1,10 +1,12 @@
+==========================
 Getting Started with UNIX
---
+==========================
 
 During this lab, we will acquaint ourselves with the Unix terminal, learn how to access data, install software, and  find things. *it is absolutely critical that you master these skills*, so please ask questions if confused.
 
+==========================
 Important UNIX rules
---
+==========================
 
 * Everything is case sensitive. Gen711 is not the same as gen711
 * Spaces in file names should be avoided
@@ -13,8 +15,9 @@ Important UNIX rules
 
 * Lines that begin with a `#` are comments.
 
+==========================
 Basic shell commands 
---
+==========================
 
 
 > `pwd` print working directory
@@ -35,15 +38,21 @@ Basic shell commands
 
 **What does this command do?**
 
+::
+
 	pwd
 
 
 *the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?*
 
+::
+
 	ls -l
 
 
 **create a file**
+
+::
 
     nano hello.txt
     #The nano text editor will appear -> type something
@@ -56,12 +65,16 @@ Basic shell commands
 
 **look at the file, there are several ways to look at the file**
 
+::
+
 	head -5 hello.txt #this shows you the 1st 5 lines of the file
 	more hello.txt #this shows you the whole file, 1 screen at a time. Space bar to advance, q to quit
 
 
 
 **make a copy of the file, using a different name, then remove it.**
+
+::
 
 	cp hello.txt bye.txt
 	ls -lth
@@ -71,12 +84,16 @@ Basic shell commands
 
 **move the file (or rename it). What is the difference between `mv` and `cp`???**
 
+::
+
 	mv hello.txt bye.txt
 	ls -lth
 
 
 
 **make a folder (directory), make a file inside a folder.**
+
+::
 
     mkdir testfolder
     ls -lth
@@ -98,6 +115,7 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 ** Step 1: Launch and AMI. For this exercise, a t1.micro will be sufficient.
 
+::
 
 	ssh -i ~/Downloads/gen711.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
 
@@ -105,11 +123,14 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 ** The machine you are using is Linux Ubuntu: Ubuntu is an operating system you can use (I do) on your laptop or desktop. One of the nice things about this OS is the ability to update the software, easily.  The command `sudo apt-get update` checks a server for updates to existing software.
 
+::
 
 	sudo apt-get update
 
 
 **The upgrade command actually installs any of the required updates.
+
+::
 
 	sudo apt-get upgrade
 
@@ -119,6 +140,7 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 ** So now that we have updates the software, lets see how to add new software. Same basic command, but instead of the `update` or `upgrade` command, we're using `install`. EASY!!
 
+::
 
 	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip \
         default-jre
@@ -131,5 +153,7 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 **BTW, did you notice the `\` at the end of line 1 in the above code snippett?? That is a special character we use to break up a single line of code over 2 or more lines. You'll see me use this a lot!**
 
+
+==========================
 TERMINATE YOUR INSTANCE
-==
+==========================

@@ -85,5 +85,6 @@ After you've done this, you should make a file containing the query and the hits
 
   head -5 dataset1.fa > onesequence.fasta
 
+========================
 TERMINATE YOUR INSTANCE
-==
+========================
