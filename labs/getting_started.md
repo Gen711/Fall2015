@@ -13,8 +13,17 @@ Important UNIX rules
 
 * Lines that begin with a `#` are comments.
 
-Basic shell commands
+Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 --
+
+> `pwd` print working directory
+> `ls` list directory contents
+> `nano` open up a text editor
+> `mkdir` make a directory (folder)
+> `cd` Change directories
+> `rm` delete a file
+> `mv` move a file 
+> `cp` copy a file
 
 >the `pwd` command returns your current location.
 
@@ -22,7 +31,7 @@ Basic shell commands
 
 -
 
->the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?* Try typing `man ls` to learn about all the different flags.
+>the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?*
 
 	ls -l
 
