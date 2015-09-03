@@ -130,3 +130,6 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 
 **BTW, did you notice the `\` at the end of line 1 in the above code snippett?? That is a special character we use to break up a single line of code over 2 or more lines. You'll see me use this a lot!**
+
+TERMINATE YOUR INSTANCE
+==
