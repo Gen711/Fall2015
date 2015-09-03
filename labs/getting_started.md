@@ -16,8 +16,6 @@ Important UNIX rules
 Basic shell commands 
 --
 
-`pwd ls nano head mkdir cd rm mv cp`
-
 
 > `pwd` print working directory
 
@@ -35,12 +33,12 @@ Basic shell commands
 
 > `cp` copy a file
 
-> What does this command do?
+*What does this command do?*
 
 	pwd
 
 
->the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?*
+*the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?*
 
 	ls -l
 
