@@ -1,4 +1,4 @@
-Lab 1
+Getting Started with UNIX
 --
 
 During this lab, we will acquaint ourselves with the Unix terminal, learn how to access data, install software, and  find things. *it is absolutely critical that you master these skills*, so please ask questions if confused.
