@@ -95,13 +95,13 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 >There is some info that is complementary to this material found here: <a href="http://swcarpentry.github.io/2014-08-21-upenn/novice/ref/01-shell.html">http://swcarpentry.github.io/2014-08-21-upenn/novice/ref/01-shell.html</a>
 
 
-Launch and EC2 Instance
+Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 --
 
 > Step 1: Launch and AMI. For this exercise, a t1.micro will be sufficient.
 
 
-	ssh -i ~/Downloads/your.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
+	ssh -i ~/Downloads/gen711.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
 
 
 
@@ -132,6 +132,3 @@ Launch and EC2 Instance
 -
 
 >BTW, did you notice the `\` at the end of line 1 in the above code snippett?? That is a special character we use to break up a single line of code over 2 or more lines. You'll see me use this a lot!
-
--
-
