@@ -13,8 +13,11 @@ Important UNIX rules
 
 * Lines that begin with a `#` are comments.
 
-Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
+Basic shell commands 
 --
+
+`pwd ls nano head mkdir cd rm mv cp`
+
 
 > `pwd` print working directory
 
@@ -32,17 +35,15 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 
 > `cp` copy a file
 
->the `pwd` command returns your current location.
+> What does this command do?
 
 	pwd
 
--
 
 >the `ls` command lists the files and folders present in your current directory.  Try `ls -lt` and `ls -lth`. *What is the difference between these commands?*
 
 	ls -l
 
--
 
 >create a file
 
@@ -53,14 +54,14 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
     y
     #typing n would get rid of the text you just wrote.
 
--
+
 
 >look at the file, there are several ways to look at the file
 
 	head -5 hello.txt #this shows you the 1st 5 lines of the file
 	more hello.txt #this shows you the whole file, 1 screen at a time. Space bar to advance, q to quit
 
--
+
 
 >make a copy of the file, using a different name, then remove it.
 
@@ -76,7 +77,7 @@ Basic shell commands - `pwd ls nano head mkdir cd rm mv cp`
 	mv hello.txt bye.txt
 	ls -lth
 
--
+
 
 >make a folder (directory), make a file inside a folder.
 
@@ -121,14 +122,14 @@ Launch and EC2 Instance -- Go to PPT BEFORE PROCEEDING
 
 > So now that we have updates the software, lets see how to add new software. Same basic command, but instead of the `update` or `upgrade` command, we're using `install`. EASY!!
 
--
+
 	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip \
         default-jre
  
--
+
 
 >After you run this command, try something else - try to install something else. R (a stats package - more on this wonderful software later). The package is named `r-base-core`. See if you can install it!! Installing software on Linux is easy (so long as there is a downloadable package - more on when no such package exists later in lab)
 
--
+
 
 >BTW, did you notice the `\` at the end of line 1 in the above code snippett?? That is a special character we use to break up a single line of code over 2 or more lines. You'll see me use this a lot!
