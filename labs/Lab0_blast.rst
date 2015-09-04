@@ -28,11 +28,11 @@ The machine you are using is Linux Ubuntu: Ubuntu is an operating system you can
   sudo apt-get -y upgrade
 
 
-OK, what are these commands?  `sudo` is the command that tells the computer that we have admin privileges. Try running the commands without the sudo -- it will complain that you don't have admin privileges or something like that. *Careful here, using sudo means that you can do something really bad to your own computer -- like delete everything*, so use with caution. It's not a big worry when using AWS, as this is a virtual machine- fixing your worst mistake is as easy as just terminating the instance and restarting.
+OK, what are these commands?  ``sudo`` is the command that tells the computer that we have admin privileges. Try running the commands without the sudo -- it will complain that you don't have admin privileges or something like that. *Careful here, using sudo means that you can do something really bad to your own computer -- like delete everything*, so use with caution. It's not a big worry when using AWS, as this is a virtual machine- fixing your worst mistake is as easy as just terminating the instance and restarting.
 
 
 
-**INSTALL SOFTWARE:** So now that we have updates the software, lets see how to add new software. Same basic command, but instead of the `update` or `upgrade` command, we're using `install`. EASY!!
+**INSTALL SOFTWARE:** So now that we have updates the software, lets see how to add new software. Same basic command, but instead of the ``update`` or ``upgrade`` command, we're using ``install``. EASY!!
 
 ::
 
@@ -40,14 +40,14 @@ OK, what are these commands?  `sudo` is the command that tells the computer tha
         default-jre
 
 
-**INSTALL BLAST:** ok, for this lab we are going to use BLAST, which is available as a package entitled `ncbi-blast+`
+**INSTALL BLAST:** ok, for this lab we are going to use BLAST, which is available as a package entitled ``ncbi-blast+``
 
 ::
 
   sudo apt-get -y install ???
 
 
-to get a feel for the different options, type `blastp -help`. Which type of blast does this correspond to? Look at the help info for blastp and tblastx
+to get a feel for the different options, type ``blastp -help``. Which type of blast does this correspond to? Look at the help info for blastp and tblastx
 
 
 
@@ -72,18 +72,21 @@ Now we are ready to blast.
 
 ::
 
-  head -5 Vicugna_pacos.vicPac1.pep.all.fa > test.fasta
+  head -6 Vicugna_pacos.vicPac1.pep.all.fa > test.fasta
   blastp -evalue 1e-10 -num_threads 4 -db uniprot -query test.fasta -outfmt 6
 
-You will see the results in a table with 12 columns. Use `blastp -help` to see what the results mean.
+You will see the results in a table with 12 columns. Use ``blastp -help`` to see what the results mean.
 
-Test out some of the blast options. Try changing the word size `-word_size`, scoring matrix, evalue, cost to open or extend a gap. See how these changes affect the results.
+Test out some of the blast options. Try changing the word size ``-word_size``, scoring matrix, evalue, cost to open or extend a gap. See how these changes affect the results.
 
-After you've done this, you should make a file containing the query and the hits.
+So great, you can blast 1 sequence, ut you could have done that on the web.. What about 100 sequences
 
 ::
 
-  head -5 dataset1.fa > onesequence.fasta
+  head -1008 Vicugna_pacos.vicPac1.pep.all.fa > larger.fasta
+  blastp -evalue 1e-10 -num_threads 4 -db uniprot -query larger.fasta -outfmt 6
+
+This might take a while.. but you can go have a coffee or whatever.. **The point is, that using the command line it's just as easy for you to blast 1 sequence as it is 100 or 100000**
 
 ========================
 TERMINATE YOUR INSTANCE
