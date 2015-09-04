@@ -51,7 +51,7 @@ to get a feel for the different options, type ``blastp -help``. Which type of bl
 
 
 
-**DOWNLOAD DATA:**  remember, for blasting we need both some data (a query) and a database. Lets start with the data 1st. You will have one of the 5 different datasets. Do you remember how to use the `wget` and `gzip` commands from last week?
+**DOWNLOAD DATA:**  remember, for blasting we need both some data (a query) and a database. Lets start with the data 1st, then the database.
 
 ::
 
@@ -79,7 +79,7 @@ You will see the results in a table with 12 columns. Use ``blastp -help`` to see
 
 Test out some of the blast options. Try changing the word size ``-word_size``, scoring matrix, evalue, cost to open or extend a gap. See how these changes affect the results.
 
-So great, you can blast 1 sequence, ut you could have done that on the web.. What about 100 sequences
+So great, you can blast 1 sequence, but you could have done that on the web.. What about 100 sequences
 
 ::
 
@@ -87,6 +87,12 @@ So great, you can blast 1 sequence, ut you could have done that on the web.. Wha
   blastp -evalue 1e-10 -num_threads 4 -db uniprot -query larger.fasta -outfmt 6
 
 This might take a while.. but you can go have a coffee or whatever.. **The point is, that using the command line it's just as easy for you to blast 1 sequence as it is 100 or 100000**
+
+::
+
+  # to save the results to a file named ``results.blastp``.  
+
+  blastp -evalue 1e-10 -num_threads 4 -db uniprot -query larger.fasta -outfmt 6 > results.blastp
 
 ========================
 TERMINATE YOUR INSTANCE
