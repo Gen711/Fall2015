@@ -34,3 +34,4 @@ Genetics 711/811 | Bioinformatics and Genomics
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
     - :download:`Week 1 lecture Reading <files/Week1-reading.pdf>` 
+    - Reading Week2: Google BLAST and Type 1 error, Benjamini-Hochberg correction.  
