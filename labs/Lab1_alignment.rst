@@ -97,12 +97,17 @@ make a blast database
 
   makeblastdb -in uniprot.pep -out uniprot -dbtype prot
 
-Now we are ready to blast.
+**For teh query sequnces, I am going to pull out 2 specific sequences from the larger dataset ``dataset1.pep``. These are both HOX genes that I have identified ahead of time. The command ``grep`` finds words/numbers/symbols in files. Remember that the ``>`` sends the results of the command to a file, in this case names ``query.pep``.   
 
 ::
 
-  grep -A1 'ENSPTRP00000032491\|ENSPTRP00000032494' dataset1.pep > query.fa
-  blastp -evalue 8e-8 -num_threads 8 -db uniprot -query query.fa -max_target_seqs 3 -outfmt "6 qseqid pident evalue stitle"
+  grep -A1 'ENSPTRP00000032491\|ENSPTRP00000032494' dataset1.pep > query.pep
+
+Now that I have a couple of query sequences, we are ready to blast.
+
+::
+
+  blastp -evalue 8e-8 -num_threads 8 -db uniprot -query query.pep -max_target_seqs 3 -outfmt "6 qseqid pident evalue stitle"
 
 You will see the results in a table with 4 columns. Use `blastp -help` to see what the results mean. Test out some of the blast options. Try changing the word size ``-word_size``, scoring matrix, evalue, cost to open or extend a gap. See how these changes affect the results.
 
