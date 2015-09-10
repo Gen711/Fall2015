@@ -143,7 +143,7 @@ Make a phylogeny
 
 ::
 
-  raxmlHPC-PTHREADS -f a -m PROTCATBLOSUM62 -T 4 -x 34 -N 100 -n tree -s for.tree -p 35
+  raxmlHPC-PTHREADS -f a -m PROTCATBLOSUM62 -T 8 -x 34 -N 100 -n tree -s for.tree -p 35
 
 Copy phylogeny and view online.
 
