@@ -111,7 +111,7 @@ You will see the results in a table with 4 columns. Use `blastp -help` to see wh
 
 ::
 
-  grep --no-group-separator -A1 'HXA2_HUMAN\|HXA2_BOVIN\|HXA2_PAPAN\|HXA3_HUMAN\|HXA3_MOUSE\|HXA3_BOVIN' uniprot.pep > results.pep
+  grep --no-group-separator -A1 'HXA2_HUMAN\|HXA2_BOVIN\|HXA2_PAPAN\|HXA3_HUMAN\|HXA3_MOUSE\|HXA3_BOVIN\|HXA9_HUMAN' uniprot.pep > results.pep
 
 
 **Now, make a file that containsBOTH  the query sequences AND the sequences we found by blasting.
