@@ -1,5 +1,5 @@
 ===================
-Lab 2: Alignment
+Lab 1: Alignment
 ===================
 
 During this lab, we will acquaint ourselves with alignment. Your objectives are:
