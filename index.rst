@@ -29,7 +29,8 @@ Genetics 711/811 | Bioinformatics and Genomics
 6. Lab lessons
     - :doc:`labs/getting_started`
     - :download:`Launch an EC2 Instance <files/Lanch_AMI.pdf>`
-    - Lab 4Sept15: :doc:`labs/Lab0_blast`
+    - Lab 04Sept15: :doc:`labs/Lab0_blast`
+    - Lab 11Sept15: :doc:`labs/Lab1_alignment`
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
