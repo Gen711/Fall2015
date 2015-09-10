@@ -35,8 +35,7 @@ OK, what are these commands?  ``sudo`` is the command that tells the computer th
 
 ::
 
-	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip \
-        default-jre ncbi-blast+
+  sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre ncbi-blast+
 
 
 
