@@ -153,7 +153,11 @@ Copy phylogeny and view online.
 
 	#copy this info.
 
-Visualize tree on website: http://iubio.bio.indiana.edu/treeapp/treeprint-form.html
+Visualize tree on website: http://www.evolgenius.info/evolview/
+
+1. Click on the folder icon in teh top-left part of the page. 
+2. Paste in the code from your terminal. **FYI, this is the NEWICK tree format**, yes, named after Newick's just down the road from us!!
+3. Find the HOX9 gene - this is the outgroup sequence we will use to rood the tree. Hower over teh branch and it will turn red - a box will open, click "reroot here"
 
 ===============================================
 TERMINATE YOUR INSTANCE
