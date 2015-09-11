@@ -37,3 +37,6 @@ You will do the same type of ``grep`` search, but the names of the genes will be
 
 In the end, you will have Newick tree code and an alignment. Put each of these on Github, and send me the link to the repository. 
 
+============================
+Terminate your instance
+============================
