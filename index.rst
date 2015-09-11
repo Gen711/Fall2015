@@ -40,4 +40,4 @@ Genetics 711/811 | Bioinformatics and Genomics
     - :download:`Week 2 lecture/lab Reading <files/Week2-reading.pdf>` We will continue with this material in week 3 as well. 
 
 8. Homework
-    - :doc:`labs/hw1` Due date: 18Sept15
+    - :doc:`files/hw1` Due date: 18Sept15
