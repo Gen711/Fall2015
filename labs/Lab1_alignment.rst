@@ -37,6 +37,36 @@ OK, what are these commands?  ``sudo`` is the command that tells the computer th
 
   sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre ncbi-blast+
 
+======================
+Finish up with GitHub
+======================
+
+**Go to the github repo you just created**, and find the box on the middle right side of the screen labelled ``HTTPS clone URL``. Copy the text that is in that box, then go back to your terminal. 
+
+::
+
+  git clone https://github.com/macmanes-lab/fri_lecture.git
+  cd fri_lecture  #you're going to ``cd`` into some other directory, whatever you named your repo. 
+
+  ##lets make a file, for fun
+
+  nano test_file.txt
+
+
+  git add test_file.txt
+  git commit -m 'i am adding my first new file, YAY'
+  git push  #You're going to have to type in your Github user name and password
+
+  ##Go to github, you might have to reload teh page, and see that your file has been added. 
+
+  ##now lets edit that file ``test_file.txt``
+
+  nano test_file.txt
+
+  git commit -m 'whoa, version control FTW!!'
+  git push
+ 
+  ##Go to github, you might have to reload the page, click on the filename, then history. 
 
 
 =======================
