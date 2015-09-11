@@ -17,7 +17,7 @@ Instead of using ``ENSPTRP00000032491`` and ``ENSPTRP00000032494``, you are goin
 - if your last name begins with A-E: ENSPTRP00000000215 and ENSPTRP00000028630 
 - if your last name begins with F-K: ENSPTRP00000000198 and ENSPTRP00000044401
 - if your last name begins with L-Q: ENSPTRP00000009781 and ENSPTRP00000000220
-- if your last name begins with R-Z: 
+- if your last name begins with R-Z: ENSPTRP00000007897 and ENSPTRP00000005951
 
 **Can you see** how you would change the original command (``grep -A1 'ENSPTRP00000032491\|ENSPTRP00000032494' dataset1.pep > query.pep``) to search for these new sequences?
  
