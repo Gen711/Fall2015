@@ -35,7 +35,7 @@ Once you've done that, you can use BLAST just like you did in lab 1:
 
 You will do the same type of ``grep`` search, but the names of the genes will be different.. i.e., ``HXA2_HUMAN\|HXA2_BOVIN\|HXA2_PAPAN`` will be different names because you have blasted for different sequences.
 
-In the end, you will have Newick tree code and an alignment. Put each of these on Github, and send me the link to the repository. 
+In the end, you will have Newick tree code and an alignment. Send me an email with these 2 things. 
 
 ============================
 Terminate your instance
