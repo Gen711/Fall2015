@@ -21,11 +21,12 @@ Genetics 711/811 | Bioinformatics and Genomics
 4. Syllabus :doc:`Syllabus`
 
 5. Lecture Materials.
-    -  :download:`Lecture 0 <files/Lecture_1.pdf>`
-    -  :download:`Lecture 1 <files/Lecture_2.pdf>`
+    -  :download:`Welcome Lecture 0 <files/Lecture_1.pdf>`
+    -  :download:`BLAST Lecture 1 <files/Lecture_2.pdf>`
     -  :download:`Lecture 4Sept15 <files/Lec_4Sept15.pdf>`
     -  :download:`Lecture 9Sept15 <files/Lec_9Sept15.pdf>`
-    -  :download:`Lecture 14Sept15 <files/Lec_14Sept15.pdf>`
+    -  :download:`Alignment Lecture 14Sept15 <files/Lec_14Sept15.pdf>`
+    -  :download:`Alignment Lecture 16Sept15 <files/Lec_16Sept15.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
