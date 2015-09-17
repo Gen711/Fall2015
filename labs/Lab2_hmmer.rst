@@ -126,6 +126,7 @@ Now let's look at the ``hmmscan``  results. This analyses may still be running, 
 
 > Just for fun, check on the Pfam search to see what it is doing... 
 
+::
 
     tmux attach -t pfam
     ctl-b d
