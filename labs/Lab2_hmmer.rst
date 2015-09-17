@@ -14,7 +14,7 @@ The HMMER manual ftp://selab.janelia.org/pub/software/hmmer3/3.1b1/Userguide.pdf
 The HMMER webpage: http://hmmer.janelia.org/
 
 
-Step 1: Launch and AMI. For this exercise, we will use a c3.xlarge instance. Remember to change the permission of your key code `chmod 400 ~/Downloads/your.pem` (change your.pem to whatever you named it)
+Step 1: Launch and AMI. For this exercise, we will use a c4.xlarge instance.
 
 ::
 
