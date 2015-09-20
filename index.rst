@@ -27,6 +27,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Lecture 9Sept15 <files/Lec_9Sept15.pdf>`
     -  :download:`Alignment Lecture 14Sept15 <files/Lec_14Sept15.pdf>`
     -  :download:`Alignment Lecture 16Sept15 <files/Lec_16Sept15.pdf>`
+    -  `HMM Info <http://genomebio.org/Gen711/?p=152>`_
     
 6. Lab lessons
     - :doc:`labs/getting_started`
@@ -42,6 +43,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Reading Week2: Google BLAST and Type 1 error, Benjamini-Hochberg correction.  
     - :download:`Week 2 lecture/lab Reading <files/Week2-reading.pdf>` We will continue with this material in week 3 as well. 
     - Lab reading for 9/14. PCFB Chapter 5
+    - `HMM Reading <http://www.nature.com/nbt/journal/v22/n10/pdf/nbt1004-1315.pdf>`_
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
