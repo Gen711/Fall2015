@@ -44,7 +44,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Reading Week2: Google BLAST and Type 1 error, Benjamini-Hochberg correction.  
     - :download:`Week 2 lecture/lab Reading <files/Week2-reading.pdf>` We will continue with this material in week 3 as well. 
     - Lab reading for 9/14. PCFB Chapter 5
-    - `HMM Reading <http://www.nature.com/nbt/journal/v22/n10/pdf/nbt1004-1315.pdf>`_
+    - `HMM Reading for week of 9/21 <http://www.nature.com/nbt/journal/v22/n10/pdf/nbt1004-1315.pdf>`_
+    - Lab reading for 9/21. PCFB Chapter 6
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
