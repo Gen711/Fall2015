@@ -28,6 +28,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Alignment Lecture 14Sept15 <files/Lec_14Sept15.pdf>`
     -  :download:`Alignment Lecture 16Sept15 <files/Lec_16Sept15.pdf>`
     -  `HMM Info <http://genomebio.org/Gen711/?p=152>`_
+    -  :download:`HMM/fastQ Lecture 21Sept15 <files/Lec_21Sept15_AdvSearch.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
