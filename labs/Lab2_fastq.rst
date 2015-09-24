@@ -37,7 +37,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
 
-> Install R
+> Install R. R is a stats program, better than SPSS or JMP or whatever other software. There is somewhat of a steep learning curve, however.
 
 ::
 
@@ -62,7 +62,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
     PATH=$PATH:$(pwd)
 
 
-> Download data, and uncompress them.. What does the `-cd` flag mean WRT gzip??
+> Download data, and uncompress them..
 
 ::
 
@@ -71,7 +71,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz > kidney.2.fq.gz  
 
 
-> Start SolexaQA running
+> Start SolexaQA running in a tmux window, then close it so we can work on other things. 
 
 ::
 
@@ -81,7 +81,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   ctl-b d
 
 
-> While SolexaQA is working, lets install khmer.. Again, make sure you know what each of these commands does, rather than just copying and pasting..
+> While SolexaQA is working, lets install khmer, a Python package for working with kmers. Again, make sure you know what each of these commands does, rather than just copying and pasting..
 
 ::
 
@@ -109,7 +109,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
 > Wait for these things to be done.. Use ``top -c`` to do this.. Remember ``q`` gets you outta ``top``.
 
-> Open up a new terminal window using the buttons command-t
+> Open up a new terminal (tab) or window using the buttons command-t. You're going to download the files you created on teh AWS machine to the MAC your using in the lab. 
 
 ::
 
@@ -118,14 +118,14 @@ If you have to make a new ``pem`` code, remember to change the permission of you
     scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/khmer_analysis/reads.hist ~/Downloads/
 
 
-> Now, on your MAC, find the PDF files you just downloaded.. 
+> Now, on your MAC, find the PDF files you just downloaded.. Open them up and see what they look like. Can you figure out what they mean? 
 
 
 > Now look at the ``.quality`` and ``.hist`` file.  which is the plot of quality containing both the mean quality as well as that for each tile. I want you to plot the distribution using R and RStudio.
 
 
 
-> OPEN RSTUDIO
+> OPEN RSTUDIO - this should be instaled on your Mac. 
 
 ::
 
