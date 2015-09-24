@@ -61,8 +61,8 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 ::
 
   mkdir reads && cd reads
-  curl -LO https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz
-  curl -LO https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz  
+  curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz > kidney.1.fq.gz 
+  curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz > kidney.2.fq.gz  
 
 
 > Start SolexaQA running
@@ -71,7 +71,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
   tmux new -s solexa
   cd $HOME && mkdir read_analysis && cd read_analysis 
-  SolexaQA++ analysis -p 0.1  ~/reads/Thomas_McBr1_R1.PF.fastq.gz ~/reads/Thomas_McBr1_R2.PF.fastq.gz
+  SolexaQA++ analysis -p 0.1  ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz
   ctl-b d
 
 
@@ -94,8 +94,8 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
   tmux new -s khmer
   mkdir khmer && cd khmer
   
-  interleave-reads.py ~/reads/Thomas_McBr1_R1.PF.fastq.gz ~/reads/Thomas_McBr1_R2.PF.fastq.gz \
-  | abundance-dist-single.py --threads 8 -M 1000000000 -k 25 - reads.hist
+  interleave-reads.py ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
+  | abundance-dist-single.py --threads 8 -M 2000000000 -k 25 - reads.hist
 
   ctl-b d
 
