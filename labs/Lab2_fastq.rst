@@ -32,18 +32,27 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
 ::
 
-  sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre r-base
+  sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip
 
 
-> Ok, for this lab we are going to use FastQC. There is a version available on apt-get, but it is an old version and we want to make sure that we have the most updated version.. <span style="color: **Make sure you know what each of these commands does, rather than blindly copying and pasting..**
+> Ok, for this lab we are going to use FastQC. There is a version available on apt-get, but it is an old version and we want to make sure that we have the most updated version.. **Make sure you know what each of these commands does, rather than blindly copying and pasting..**
+
+::
+
+  cd $HOME
+  curl -LO https://cran.r-project.org/src/base/R-3/R-3.2.2.tar.gz
+  tar -zxf R-3.2.2.tar.gz
+  cd R-3.2.2/
+  ./configure --with-x=no
+  make -j4
+  sudo make all install
 
 ::
 
     cd $HOME
-    curl -LO http://downloads.sourceforge.net/project/solexaqa/src/SolexaQA%2B%2B_v3.1.3.zip
-    unzip -d solexaQA SolexaQA%2B%2B_v3.1.3.zip
-    cd solexaQA/Linux_x64/
-    chmod +x SolexaQA++
+    git clone
+    cd solexaqa-code
+    make
     PATH=$PATH:$(pwd)
 
 
@@ -63,30 +72,20 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
   tmux new -s solexa
   cd $HOME && mkdir read_analysis && cd read_analysis 
-  SolexaQA++ analysis -p 0.1 -d Thomas_McBr1_R1.PF.fastq.gz Thomas_McBr1_R2.PF.fastq.gz
+  SolexaQA++ analysis -p 0.1  ~/reads/Thomas_McBr1_R1.PF.fastq.gz ~/reads/Thomas_McBr1_R2.PF.fastq.gz
   ctl-b d
 
 
-> While Fastool is working, lets install khmer.. <span style="color: #ff0000;"><strong>Again, make sure you know what each of these commands does, rather than just copying and pasting.. </strong></span>
+> While SolexaQA is working, lets install khmer.. Again, make sure you know what each of these commands does, rather than just copying and pasting..
 
 ::
 
-    cd $HOME
-    wget ftp://ftp.genome.umd.edu/pub/jellyfish/jellyfish-2.1.3.tar.gz
-    tar -zxf jellyfish-2.1.3.tar.gz
-    cd jellyfish-2.1.3/
-    ./configure
-    make
-    PATH=$PATH:$(pwd)/bin
-
-
-
-> Run FastQC. Make sure to look at the manual to see what the different outputs mean.
-
-::
-
-    cd /mnt
-    fastqc -t 4 Pero360B.1.fastq Pero360B.2.fastq
+  cd $HOME
+  sudo pip install --upgrade setuptools
+  git clone https://github.com/dib-lab/khmer.git
+  cd khmer
+  make -j4
+  sudo make all install
 
 
 > Run Jellyfish. Make sure to look at the manual.
@@ -101,6 +100,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
     head -50 Pero360B.histo
 
 
+
 > Open up a new terminal window using the buttons command-t
 
 ::
@@ -112,7 +112,6 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 > Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
 
 
-
 > Now look at the `.histo` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
 
 
@@ -120,6 +119,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 > OPEN RSTUDIO
 
 ::
+
 
     #Import Data
     histo <- read.table("~/Downloads/Pero360B.histo", quote="\"")
