@@ -38,6 +38,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Lab 11Sept15: :doc:`labs/Lab1_alignment`
     - Lab 11Sept15: `Github <http://angus.readthedocs.org/en/2015/CTB-github.html>`_ and `Why use Git <http://swcarpentry.github.io/git-novice/01-basics.html>`__
     - Lab 18Sept15: :doc:`labs/Lab2_hmmer`
+    - Lab 25Sept15: :doc:`labs/Lab2_fastq`
+
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
