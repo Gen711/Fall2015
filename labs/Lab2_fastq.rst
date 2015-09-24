@@ -113,9 +113,9 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
 ::
 
-    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/read_analysis/*pdf ~/Downloads/
-    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/read_analysis/*quality ~/Downloads/
-    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/read_analysis/*hist ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/reads/*pdf ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/reads/*quality ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/khmer_analysis/reads.hist ~/Downloads/
 
 
 > Now, on your MAC, find the PDF files you just downloaded.. 
