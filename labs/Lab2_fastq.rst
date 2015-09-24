@@ -1,20 +1,22 @@
 ================================
-Lab3: Processing fastQ and fastA
+Lab3: Processing fastQ
 ================================
 
-During this lab, we will acquaint ourselves with the the software packages FastQC and JellyFish. Your objectives are:
+During this lab, we will acquaint ourselves with the the software packages SolexaQA and khmer. Your objectives are:
 
 
 1. Familiarize yourself with the software, how to execute it, how to visualize results.
 
 2. Regarding your dataset. Characterize sequence quality.
 
-The FastQC manual:http://solexaqa.sourceforge.net/
+The SolexaQA manual:http://solexaqa.sourceforge.net/
 
-The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.pdf
+The khmer manual: http://khmer.readthedocs.org/en/v2.0/
 
 
-> Step 1: Launch and AMI. For this exercise, we will use a c3.xlarge instance. Remember to change the permission of your key code `chmod 400 ~/Downloads/????.pem` (change ????.pem to whatever you named it)
+> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge instance. **IMPORTANT DETAIL!!!!!!!!!** We need to have more hard drive space for this exercise. So when you select the machine type, don't click ``Review and Launch`` like you normally do. Instead, go to near the top of teh page and click ``4. Add Storage``. You'll see a column labelled ``Size (GiB)`` with a 8 under that.. Change that 8 to 100. Now click ``Review and Launch`` like normal. You now have a computer with a hard drive of size 100Gb. 
+
+If you have to make a new ``pem`` code, remember to change the permission of your key code `chmod 400 ~/Downloads/????.pem` (change ????.pem to whatever you named it)
 
 ::
 
@@ -32,10 +34,10 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
 ::
 
-  sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip
+  sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
 
-> Ok, for this lab we are going to use FastQC. There is a version available on apt-get, but it is an old version and we want to make sure that we have the most updated version.. **Make sure you know what each of these commands does, rather than blindly copying and pasting..**
+> Install R
 
 ::
 
@@ -46,11 +48,15 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
   ./configure --with-x=no
   make -j4
   sudo make all install
+  cd $HOME
+
+> Ok, for this lab we are going to use SolexaQA. There is a version available on apt-get, but it is an old version and we want to make sure that we have the most updated version.. **Make sure you know what each of these commands does, rather than blindly copying and pasting..**
+
 
 ::
 
     cd $HOME
-    git clone
+    git clone git://git.code.sf.net/p/solexaqa/code solexaqa-code
     cd solexaqa-code
     make
     PATH=$PATH:$(pwd)
@@ -60,7 +66,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
 ::
 
-  mkdir reads && cd reads
+  cd $HOME && mkdir reads && cd reads
   curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz > kidney.1.fq.gz 
   curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz > kidney.2.fq.gz  
 
@@ -92,7 +98,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 ::
 
   tmux new -s khmer
-  mkdir khmer && cd khmer
+  cd $HOME && mkdir khmer_analysis && cd khmer_analysis
   
   interleave-reads.py ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
   | abundance-dist-single.py --threads 8 -M 2000000000 -k 25 - reads.hist
