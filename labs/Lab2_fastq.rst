@@ -1,5 +1,5 @@
 ================================
-Lab3: Processing fastQ
+Lab4: Processing fastQ
 ================================
 
 During this lab, we will acquaint ourselves with the the software packages SolexaQA and khmer. Your objectives are:
