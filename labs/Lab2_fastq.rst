@@ -130,16 +130,16 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 ::
 
     #Import Data
-    histo <- read.table("~/Downloads/Pero360B.histo", quote="\"")
+    histo <- read.csv("~/Downloads/reads.hist", quote="\"")
     head(histo)
     
     #Plot
-    plot(histo$V2 ~ histo$V1, type='h')
+    plot (histo$cumulative_fraction ~ histo$abundance)
     
     #That one sucks, but what does it tell you about the kmer distribution?
     
     #Maybe this one is better?
-    plot(histo$V2 ~ histo$V1, type='h', xlim=c(0,100))
+    plot (histo$cumulative_fraction[1:10] ~ histo$abundance[1:10])
     
     #Better. what is xlim? Maybe we can still improve? 
     
@@ -147,10 +147,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
     
     #Final plot
     
-    plot(histo$V2 ~ histo$V1, type='h', xlim=c(0,500), ylim=c(0,1000000),
-            col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Count',
+    plot(histo$cumulative_fraction[1:10] ~ histo$abundance[1:10], type='l', lwd=5,
+            col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
             main='Kmer distribution in brain sample before quality trimming')
 
-
-
-> Done?
