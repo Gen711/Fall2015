@@ -100,8 +100,9 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   tmux new -s khmer
   cd $HOME && mkdir khmer_analysis && cd khmer_analysis
   
-  interleave-reads.py ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
-  | abundance-dist-single.py --threads 8 -M 2000000000 -k 25 - reads.hist
+  interleave-reads.py ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz > kidney.fq
+  abundance-dist-single.py --threads 8 -M 2000000000 -k 25 kidney.fq reads.hist
+
 
   ctl-b d
 
