@@ -60,8 +60,7 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 
 ::
 
-  mkdir reads
-  cd reads
+  mkdir reads && cd reads
   curl -LO https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz
   curl -LO https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz  
 
@@ -88,38 +87,40 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
   sudo make all install
 
 
-> Run Jellyfish. Make sure to look at the manual.
+> Run khmer. Make sure to look at the manual.
 
 ::
 
-    cd /mnt
-    mkdir jelly
-    cd jelly
-    jellyfish count -F2 -m 25 -s 200M -t 4 -C ../Pero360B.1.fasta ../Pero360B.2.fasta
-    jellyfish histo mer_counts.jf > Pero360B.histo
-    head -50 Pero360B.histo
+  tmux new -s khmer
+  mkdir khmer && cd khmer
+  
+  interleave-reads.py ~/reads/Thomas_McBr1_R1.PF.fastq.gz ~/reads/Thomas_McBr1_R2.PF.fastq.gz \
+  | abundance-dist-single.py --threads 8 -M 1000000000 -k 25 - reads.hist
+
+  ctl-b d
 
 
+> Wait for these things to be done.. Use ``top -c`` to do this.. Remember ``q`` gets you outta ``top``.
 
 > Open up a new terminal window using the buttons command-t
 
 ::
 
-    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/*zip ~/Downloads/
-    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/jelly/*histo ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/read_analysis/*pdf ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/read_analysis/*quality ~/Downloads/
+    scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/read_analysis/*hist ~/Downloads/
 
 
-> Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
+> Now, on your MAC, find the PDF files you just downloaded.. 
 
 
-> Now look at the `.histo` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
+> Now look at the ``.quality`` and ``.hist`` file.  which is the plot of quality containing both the mean quality as well as that for each tile. I want you to plot the distribution using R and RStudio.
 
 
 
 > OPEN RSTUDIO
 
 ::
-
 
     #Import Data
     histo <- read.table("~/Downloads/Pero360B.histo", quote="\"")
