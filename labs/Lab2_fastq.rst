@@ -141,10 +141,6 @@ If you have to make a new ``pem`` code, remember to change the permission of you
     #Maybe this one is better?
     plot (histo$cumulative_fraction[1:10] ~ histo$abundance[1:10])
     
-    #Better. what is xlim? Maybe we can still improve? 
-    
-    plot(histo$V2 ~ histo$V1, type='h', xlim=c(0,500), ylim=c(0,1000000))
-    
     #Final plot
     
     plot(histo$cumulative_fraction[1:10] ~ histo$abundance[1:10], type='l', lwd=5,
