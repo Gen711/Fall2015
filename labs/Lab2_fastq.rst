@@ -67,8 +67,8 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 ::
 
   cd $HOME && mkdir reads && cd reads
-  curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R1.fastq.gz > kidney.1.fq.gz 
-  curl -L https://s3.amazonaws.com/NYGC_August2015/raw_data/382-Kidney_ACTTGA_BC6PR5ANXX_L008_001.R2.fastq.gz > kidney.2.fq.gz  
+  curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz > kidney.1.fq.gz 
+  curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz > kidney.2.fq.gz  
 
 
 > Start SolexaQA running in a tmux window, then close it so we can work on other things. 
