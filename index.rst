@@ -31,6 +31,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`HMM/fastQ Lecture 21Sept15 <files/Lec_21Sept15_AdvSearch.pdf>`
     -  :download:`Illumina Lecture 23Sept15 <files/Lec_23Sept15_fastq.pdf>`
     -  :download:`Trimming Lecture 28Sept15 <files/Lec_28Sept15.pdf>`
+    -  :download:`Error Correction Lecture 30Sept15 <files/Lec_30Sept15.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
