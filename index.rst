@@ -51,6 +51,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `HMM Reading for week of 9/21 <http://www.nature.com/nbt/journal/v22/n10/pdf/nbt1004-1315.pdf>`_
     - Lab reading for 9/21. PCFB Chapter 6
     - `Read Trimming <http://journal.frontiersin.org/article/10.3389/fgene.2014.00013/abstract>`_
+    - :download:`Error Correction <files/molnar2014.pdf>`
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
