@@ -139,14 +139,14 @@ Lab5: Trimming fastQ
     
     par(mfcol=c(2,1))
     
-    plot(p2$cumulative_fraction[1:10] ~ p2$abundance[1:10], type='l', lwd=5,
+    plot(p2$count[1:10] ~ p2$count[1:10], type='l', lwd=5,
             col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
             main='Kmer distribution in sample with different trimming thresholds')
 
-    abline(p30$cumulative_fraction[1:10] ~ p30$abundance[1:10], type='l', lwd=5,
+    lines(p30$count[1:10] ~ p30$count[1:10], type='l', lwd=5,
             col='red')
 
-    plot(p2$cumulative_fraction[2:30] - p30$cumulative_fraction[2:30], type='l',
+    plot(p2$count[2:30] - p30$count[2:30], type='l',
         xlim=c(2,20), xaxs="i", yaxs="i", frame.plot=F,
         ylim=c(0,2000000), col='red', xlab='kmer frequency',
         lwd=4, ylab='count',
