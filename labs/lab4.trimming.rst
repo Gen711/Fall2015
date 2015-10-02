@@ -148,7 +148,7 @@ Lab5: Trimming fastQ
 
     plot(p2$count[2:30] - p30$count[2:30], type='p',
         xlim=c(2,20), xaxs="i", yaxs="i", frame.plot=F,
-        ylim=c(0,2000000), col='red', xlab='kmer frequency',
+        ylim=c(0,1500000), col='red', xlab='kmer frequency',
         lwd=4, ylab='count',
         main='Diff in 25mer counts of freq 2 to 20 \n Phred2 vs. Phred30')
 
