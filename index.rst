@@ -41,7 +41,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Lab 11Sept15: `Github <http://angus.readthedocs.org/en/2015/CTB-github.html>`_ and `Why use Git <http://swcarpentry.github.io/git-novice/01-basics.html>`__
     - Lab 18Sept15: :doc:`labs/Lab2_hmmer`
     - Lab 25Sept15: :doc:`labs/Lab2_fastq`
-
+    - Lab 2Oct15: :doc:`labs/lab4.trimming`
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
@@ -61,3 +61,4 @@ Genetics 711/811 | Bioinformatics and Genomics
 9. Exams
 
     - Yikes!!!: :doc:`labs/mock.exam1`
+    - Utter Panic: :doc:`labs/mock.exam2`
