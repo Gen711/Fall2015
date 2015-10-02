@@ -26,12 +26,12 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-5. Make the blast database using ``makeblastdb`` and start ``blastp`` like we did in lab 3.  ____________________ 10 points (``hmmscan`` should run for <10 minutes.)
+5. Make the blast database using ``makeblastdb`` and start ``blastp`` like we did in lab 3.  ____________________ 10 points (``blastp`` should run for <10 minutes.)
 
 |
 |
 
-6. How many ``Ig_2`` domains are present in the dataset? _______________ 15 points
+6. Search for the ``MICU1`` gene. Which entry has the highest sequnce similarity? Whis has the best e-value? Are these different and if so, why?  _______________ 15 points
 
 |
 |
