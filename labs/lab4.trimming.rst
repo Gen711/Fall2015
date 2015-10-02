@@ -86,6 +86,8 @@ Lab5: Trimming fastQ
   #IMPORTANT DETAIL: usually pasting things in 1 at a time is fine - except here... When you see ``\`` at the end of lines, this means copy the 2 (or 3 or 4) lines together. 
 
 
+  #Important detail #2: Dont do the trimming for trim=2, only to the trimming at trim=30. You can download the trim=2 histogram here: https://s3.amazonaws.com/gen711/P2.reads.hist
+
   #do trimming at P2
 
   trim=2
@@ -116,6 +118,9 @@ Lab5: Trimming fastQ
 
     scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:~/khmer_analysis/*hist ~/Downloads/
 
+    #also, download the Phred2 trimmed histogram here: https://s3.amazonaws.com/gen711/P2.reads.hist
+
+    curl -L https://s3.amazonaws.com/gen711/P2.reads.hist > ~/Downloads/P2.reads.hist
 
 > Now, on your MAC, find the PDF files you just downloaded.. Open them up and see what they look like. Can you figure out what they mean? 
 
