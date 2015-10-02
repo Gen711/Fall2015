@@ -143,7 +143,7 @@ Lab5: Trimming fastQ
             col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
             main='Kmer distribution in sample with different trimming thresholds')
 
-    lines(p30$count[1:10] ~ p30$count[1:10], type='l', lwd=5,
+    lines(p30$count[2:10] ~ p30$count[2:10], type='l', lwd=5,
             col='red')
 
     plot(p2$count[2:30] - p30$count[2:30], type='l',
