@@ -42,19 +42,6 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
 
 
-> Install R. R is a stats program, better than SPSS or JMP or whatever other software. There is somewhat of a steep learning curve, however.
-
-::
-
-  cd $HOME
-  curl -LO https://cran.r-project.org/src/base/R-3/R-3.2.2.tar.gz
-  tar -zxf R-3.2.2.tar.gz
-  cd R-3.2.2/
-  ./configure --with-x=no
-  make -j4
-  sudo make all install
-  cd $HOME
-
 
 > Install khmer, a Python package for working with kmers. Again, make sure you know what each of these commands does, rather than just copying and pasting..
 
@@ -79,10 +66,24 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
 >Install seqtk
 
+::
+
   cd $HOME
   git clone https://github.com/lh3/seqtk.git
   cd seqtk
   make -j4
+  PATH=$PATH:$(pwd)
+
+
+> now go back to the download tmux window to see if//wait for the download
+
+::
+
+  tmux at -t download
+
+  #IMPORTANT - when it is done downloading, kill the window
+
+  ctl-d
 
 > Run khmer. Make sure to look at the manual.
 
@@ -98,20 +99,18 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
   trim=2
   seqtk mergepe ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
-  | skewer -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
-  | tee P$trim.kidney.fq
+  | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -o P$trim.kidney
 
-  abundance-dist-single.py --threads 8 -M 2000000000 -k 25 P$trim.kidney.fq P$trim.reads.hist
+  abundance-dist-single.py --threads 8 -M 2000000000 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
 
 
   #do trimming at P30
 
   trim=30
   seqtk mergepe ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
-  | skewer -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
-  | tee P$trim.kidney.fq
+  | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -o P$trim.kidney
 
-  abundance-dist-single.py --threads 8 -M 2000000000 -k 25 P$trim.kidney.fq P$trim.reads.hist
+  abundance-dist-single.py --threads 8 -M 2000000000 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
 
   # to exit out of the tmux window, if you want to. 
 
@@ -155,4 +154,3 @@ If you have to make a new ``pem`` code, remember to change the permission of you
     plot(histo$cumulative_fraction[1:10] ~ histo$abundance[1:10], type='l', lwd=5,
             col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
             main='Kmer distribution in sample before quality trimming')
-
