@@ -5,12 +5,9 @@ Lab5: Trimming fastQ
 
 > Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge instance. **IMPORTANT DETAIL!!!!!!!!!** We need to have more hard drive space for this exercise. So when you select the machine type, don't click ``Review and Launch`` like you normally do. Instead, go to near the top of teh page and click ``4. Add Storage``. You'll see a column labelled ``Size (GiB)`` with a 8 under that.. Change that 8 to 100. Now click ``Review and Launch`` like normal. You now have a computer with a hard drive of size 100Gb. 
 
-If you have to make a new ``pem`` code, remember to change the permission of your key code `chmod 400 ~/Downloads/????.pem` (change ????.pem to whatever you named it)
-
 ::
 
 	ssh -i ~/Downloads/?????.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
-
 
 > Update Software
 
@@ -18,13 +15,11 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 
   sudo apt-get update && sudo apt-get -y upgrade
 
-
 > Install other software
 
 ::
 
   sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
-
 
 > Download data, and uncompress them.. Let's put this in a tmux window so we can get to doing other things.. remember you need paste the tmux relevant commands one at a time. 
 
@@ -39,9 +34,6 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   #then this to get out of tmux
 
   ctl-b d
-
-
-
 
 > Install khmer, a Python package for working with kmers. Again, make sure you know what each of these commands does, rather than just copying and pasting..
 
@@ -100,7 +92,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   seqtk mergepe ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
   | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -o P$trim.kidney
 
-  abundance-dist-single.py --threads 8 -M 8e9 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
+  abundance-dist-single.py --threads 8 -M 6e9 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
 
 
   #do trimming at P30
@@ -109,7 +101,7 @@ If you have to make a new ``pem`` code, remember to change the permission of you
   seqtk mergepe ~/reads/kidney.1.fq.gz ~/reads/kidney.2.fq.gz \
   | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -o P$trim.kidney
 
-  abundance-dist-single.py --threads 8 -M 8e9 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
+  abundance-dist-single.py --threads 8 -M 6e9 -k 25 P$trim.kidney-trimmed.fastq P$trim.reads.hist
 
   # to exit out of the tmux window, if you want to. 
 
@@ -137,20 +129,22 @@ If you have to make a new ``pem`` code, remember to change the permission of you
 ::
 
     #Import Data
-    histo <- read.csv("~/Downloads/reads.hist", quote="\"")
-    head(histo)
+    p2 <- read.csv("~/Downloads/P2.reads.hist", quote="\"")
+    p30 <- read.csv("~/Downloads/P30.reads.hist", quote="\"")
     
-    #Plot
-    plot (histo$cumulative_fraction ~ histo$abundance)
+    par(mfcol=c(2,1))
     
-    #That one sucks, but what does it tell you about the kmer distribution?
-    
-    #Maybe this one is better?
-    plot (histo$cumulative_fraction[1:10] ~ histo$abundance[1:10])
-    
-    #Final plot
-    
-    plot(histo$cumulative_fraction[1:10] ~ histo$abundance[1:10], type='l', lwd=5,
+    plot(p2$cumulative_fraction[1:10] ~ p2$abundance[1:10], type='l', lwd=5,
             col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
-            main='Kmer distribution in sample before quality trimming')
+            main='Kmer distribution in sample with different trimming thresholds')
+
+    abline(p30$cumulative_fraction[1:10] ~ p30$abundance[1:10], type='l', lwd=5,
+            col='red')
+
+    plot(p2$cumulative_fraction[2:30] - p30$cumulative_fraction[2:30], type='l',
+        xlim=c(2,20), xaxs="i", yaxs="i", frame.plot=F,
+        ylim=c(0,2000000), col='red', xlab='kmer frequency',
+        lwd=4, ylab='count',
+        main='Diff in 25mer counts of freq 2 to 20 \n Phred2 vs. Phred30')
+
 
