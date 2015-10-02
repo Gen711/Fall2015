@@ -21,7 +21,7 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-4. Download the dataset located here: ``https://s3.amazonaws.com/gen711/test.dataset.fa``. The query you will use in ``blastp`` is called ``test.dataset.fa``.  _________________ 5 points
+4. Download the dataset located here: ``https://s3.amazonaws.com/gen711/test.dataset2.fa``. The query you will use in ``blastp`` is called ``test.dataset2.fa``.  _________________ 5 points
 
 |
 |
