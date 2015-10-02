@@ -16,17 +16,17 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-3. Install HMMER, and download uniprot.pep and Pfam-A.hmm.gz like you did in lab 3. ___________________ 10 points. 
+3. Install BLAST, and download uniprot.pep and like you did in lab 3. ___________________ 10 points. 
 
 |
 |
 
-4. Download the dataset located here: ``https://s3.amazonaws.com/gen711/test.dataset.fa``. The dataset you will use in ``hmmscan`` is called ``test.dataset.fa``.  _________________ 5 points
+4. Download the dataset located here: ``https://s3.amazonaws.com/gen711/test.dataset.fa``. The query you will use in ``blastp`` is called ``test.dataset.fa``.  _________________ 5 points
 
 |
 |
 
-5. Make the pfam database using ``hmmpress`` and start ``hmmscan`` like we did in lab 3.  ____________________ 10 points (``hmmscan`` should run for <10 minutes.)
+5. Make the blast database using ``makeblastdb`` and start ``blastp`` like we did in lab 3.  ____________________ 10 points (``hmmscan`` should run for <10 minutes.)
 
 |
 |
