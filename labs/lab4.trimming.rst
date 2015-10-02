@@ -139,7 +139,7 @@ Lab5: Trimming fastQ
     
     par(mfcol=c(2,1))
     
-    plot(p2$count[1:10] ~ p2$count[1:10], type='l', lwd=5,
+    plot(p2$count[2:10] ~ p2$count[2:10], type='l', lwd=5,
             col='blue', frame.plot=F, xlab='25-mer frequency', ylab='Cumulative Fraction',
             main='Kmer distribution in sample with different trimming thresholds')
 
