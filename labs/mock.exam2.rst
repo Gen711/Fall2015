@@ -16,7 +16,7 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-3. Install BLAST, and download uniprot.pep and like you did in lab 3. ___________________ 10 points. 
+3. Install BLAST, and download uniprot.pep and like you did in previous labs. ___________________ 10 points. 
 
 |
 |
@@ -26,7 +26,7 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-5. Make the blast database using ``makeblastdb`` and start ``blastp`` like we did in lab 3.  ____________________ 10 points (``blastp`` should run for <10 minutes.)
+5. Make the blast database using ``makeblastdb`` and start ``blastp`` like we did in lab 0.  ____________________ 10 points (``blastp`` should run for <10 minutes.)
 
 |
 |
