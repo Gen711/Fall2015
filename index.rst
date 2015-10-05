@@ -32,6 +32,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Illumina Lecture 23Sept15 <files/Lec_23Sept15_fastq.pdf>`
     -  :download:`Trimming Lecture 28Sept15 <files/Lec_28Sept15.pdf>`
     -  :download:`Error Correction Lecture 30Sept15 <files/Lec_30Sept15.pdf>`
+    -  :download:`Lecture 5Oct15 <files/Lec_5Oct15.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
@@ -54,6 +55,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `Read Trimming <http://journal.frontiersin.org/article/10.3389/fgene.2014.00013/abstract>`_
     - :download:`Error Correction <files/molnar2014.pdf>`
     - `Another error correction paper <http://bib.oxfordjournals.org/content/14/1/56.full>`_
+    - `Khmer paper <http://f1000research.com/articles/4-900/v1>`_
+    - `Skewer paper <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-15-182>`_  
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
