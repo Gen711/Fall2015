@@ -34,6 +34,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Error Correction Lecture 30Sept15 <files/Lec_30Sept15.pdf>`
     -  :download:`Lecture 5Oct15 <files/Lec_5Oct15.pdf>`
     -  :download:`Lecture 7Oct15 <files/Lec_7Oct15.pdf>`
+    -  :download:`A few more Review Slides <files/Lec_30Sept15_with_review.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
