@@ -67,4 +67,4 @@ Genetics 711/811 | Bioinformatics and Genomics
 
     - Yikes!!!: :doc:`labs/mock.exam1`
     - Utter Panic: :doc:`labs/mock.exam2`
-#    - EXAM ONE: :doc:`labs/exam1`
+    - EXAM ONE:
