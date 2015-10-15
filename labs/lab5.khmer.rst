@@ -136,9 +136,6 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 > Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
 
 
-> Now look at the `.histo` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
-
-
 > OPEN RSTUDIO
 
 ::
