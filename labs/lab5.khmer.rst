@@ -130,7 +130,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
 ::
 
-	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/jelly/*histo ~/Downloads/
+	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:$HOME/trimming/*histo ~/Downloads/
 
 
 > Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
@@ -145,18 +145,18 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
     #Import all 2 histogram datasets: this is the code for importing 1 of them..
     
-    khmer <- read.table("~/Downloads/khmer.histo", quote="\"")
-    trim <- read.table("~/Downloads/trimmed.histo", quote="\"")
+    y_khmer <- read.table("~/Downloads/trimmed.yes.normalize.histo", quote="\"")
+    n_khmer <- read.table("~/Downloads/trimmed.no.normalize.histo", quote="\"")
     
     #What does this plot show you?? 
     
-    barplot(c(trim$V2[1],khmer$V2[1]),
+    barplot(c(n_khmer$V2[1],y_khmer$V2[1]),
         names=c('Non-normalized', 'C50 Normalized'),
         main='Number of unique kmers')
     
     # plot differences between non-unique kmers
     
-    plot(khmer$V2[10:300] - trim$V2[10:300], type='l',
+    plot(y_khmer$V2[10:300] - n_khmer$V2[10:300], type='l',
         xlim=c(10,300), xaxs="i", yaxs="i", frame.plot=F,
         ylim=c(-10000,60000), col='red', xlab='kmer frequency',
         lwd=4, ylab='count',
