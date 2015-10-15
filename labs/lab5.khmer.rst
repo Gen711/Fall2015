@@ -78,13 +78,8 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
     cd $HOME
-    sudo pip install screed pysam
     sudo easy_install -U setuptools
-    git clone https://github.com/ged-lab/khmer.git
-    cd khmer
-    make -j4
-    sudo make install
-
+    sudo pip install screed pysam khmer
 
 > Download data and a file with the Illumina adapters, ``TruSeq3-PE.fa``
 
