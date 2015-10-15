@@ -157,7 +157,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     # plot differences between non-unique kmers
     
     plot(n_khmer$V2[0:300] - y_khmer$V2[0:300], type='l',
-        xlim=c(10,300), xaxs="i", yaxs="i", frame.plot=F,
+        xlim=c(0,300), xaxs="i", yaxs="i", frame.plot=F,
         ylim=c(-20000,30000), col='red', xlab='kmer frequency',
         lwd=4, ylab='count',
         main='Diff in 25mer counts of \n normalized vs. un-normalized datasets')
