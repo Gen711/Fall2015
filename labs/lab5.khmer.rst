@@ -112,7 +112,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
     | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
-    | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | jellyfish count -m 25 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
     | jellyfish histo /dev/stdin -o trimmed.no.normalize.histo
 
   #and
@@ -122,7 +122,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
     | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
     | normalize-by-median.py --max-memory-usage 6e9 -C 30 -o - - \
-    | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | jellyfish count -m 25 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
     | jellyfish histo /dev/stdin -o trimmed.yes.normalize.histo
 
 
