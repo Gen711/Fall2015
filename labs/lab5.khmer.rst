@@ -30,36 +30,28 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 > Update Software
 
 ::
-	sudo bash
-	apt-get update
 
-
-> Install updates
-
-::
-	
-  apt-get -y upgrade
+	sudo apt-get update && sudo apt-get upgrade
 
 
 > Install other software
 
 ::
 
-	apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre python-pip zlib1g-dev
+	apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
 
 ---
 
-> Install Trimmomatic
+> Install Skewer
 
 ::
 
-    cd $HOME
-    wget http://www.usadellab.org/cms/uploads/supplementary/Trimmomatic/Trimmomatic-0.32.zip
-    unzip Trimmomatic-0.32.zip
-    cd Trimmomatic-0.32
-    chmod +x trimmomatic-0.32.jar
-
+  cd $HOME
+  git clone https://github.com/relipmoc/skewer.git
+  cd skewer
+  make
+  PATH=$PATH:$(pwd)
 
 > Install Jellyfish
 
@@ -73,6 +65,16 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     make -j4
     PATH=$PATH:$(pwd)/bin
 
+> Install seqtk
+
+::
+
+  cd $HOME
+  git clone https://github.com/lh3/seqtk.git
+  cd seqtk
+  make -j4
+  PATH=$PATH:$(pwd)
+
 > Install Khmer
 
 ::
@@ -82,18 +84,18 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     git clone https://github.com/ged-lab/khmer.git
     cd khmer
     make -j4
-    make install
-    PATH=$PATH:$(pwd)/scripts
+    sudo make install
 
 
-> Download data. For this lab, we'll be using a smaller dataset that consists of 10million paired end reads.
+> Download data and a file with the Illumina adapters, ``TruSeq3-PE.fa``
 
 ::
 
-
-	cd /mnt
-	wget https://s3.amazonaws.com/gen711/raw.10M.SRR797058_1.fastq.gz
-	wget https://s3.amazonaws.com/gen711/raw.10M.SRR797058_2.fastq.gz
+  cd $HOME
+  curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
+  mkdir -p $HOME/reads && $HOME/reads
+  curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz > kidney.1.fq.gz &
+  curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz > kidney.2.fq.gz
 
 
 > Trim low quality bases and adapters from dataset. These files will form the basis of all out subsequent analyses.
@@ -106,15 +108,18 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     
     #paste the below lines together as 1 command
     
-    java -Xmx10g -jar $HOME/Trimmomatic-0.32/trimmomatic-0.32.jar PE \
-    -threads 4 -baseout P2.trimmed.fastQ \
-    /mnt/raw.10M.SRR797058_1.fastq.gz \
-    /mnt/raw.10M.SRR797058_2.fastq.gz \
-    ILLUMINACLIP:$HOME/Trimmomatic-0.32/adapters/TruSeq3-PE.fa:2:30:10 \
-    SLIDINGWINDOW:4:2 \
-    LEADING:2 \
-    TRAILING:2 \
-    MINLEN:25
+  trim=2
+  norm=30
+  seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
+    | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | jellyfish histo /dev/stdin -o trimmed.no.normalize.histo
+
+  #and
+
+  seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
+    | normalize-by-median.py --max-memory-usage 2e9 -C 30 -o P$trim.C$norm.kidney - \
 
 
 > Run Jellyfish on the un-normalized dataset.
