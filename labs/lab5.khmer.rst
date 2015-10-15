@@ -41,8 +41,6 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
 
----
-
 > Install Skewer
 
 ::
@@ -94,7 +92,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
   cd $HOME
   curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
-  mkdir -p $HOME/reads && $HOME/reads
+  mkdir -p $HOME/reads && cd $HOME/reads
   curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz > kidney.1.fq.gz &
   curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz > kidney.2.fq.gz
 
@@ -104,7 +102,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
 
-    mkdir $HOME/trimming && cd $HOME/trimming
+  mkdir $HOME/trimming && cd $HOME/trimming
     
     
   trim=2
