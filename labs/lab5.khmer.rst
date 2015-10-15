@@ -63,7 +63,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     cd jellyfish-2.1.3/
     ./configure
     make -j4
-    sudo make install
+    PATH=$PATH:$(pwd)
 
 > Install seqtk
 
@@ -113,7 +113,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
   #paste the below lines together as 1 command
 
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
-    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
     | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
     | jellyfish histo /dev/stdin -o trimmed.no.normalize.histo
 
@@ -122,7 +122,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
   #paste the below lines together as 1 command
 
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
-    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
     | normalize-by-median.py --max-memory-usage 2e9 -C 30 -o - - \
     | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
     | jellyfish histo /dev/stdin -o trimmed.yes.normalize.histo
