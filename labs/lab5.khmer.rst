@@ -31,14 +31,14 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
 ::
 
-	sudo apt-get update && sudo apt-get upgrade
+	sudo apt-get update && sudo apt-get -y upgrade
 
 
 > Install other software
 
 ::
 
-	apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
+	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
 
 ---
@@ -63,7 +63,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     cd jellyfish-2.1.3/
     ./configure
     make -j4
-    PATH=$PATH:$(pwd)/bin
+    sudo make install
 
 > Install seqtk
 
@@ -80,7 +80,8 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
     cd $HOME
-    pip install screed pysam
+    sudo pip install screed pysam
+    sudo easy_install -U setuptools
     git clone https://github.com/ged-lab/khmer.git
     cd khmer
     make -j4
@@ -103,13 +104,14 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
 
-    mkdir /mnt/trimming
-    cd /mnt/trimming
+    mkdir $HOME/trimming && cd $HOME/trimming
     
-    #paste the below lines together as 1 command
     
   trim=2
   norm=30
+
+  #paste the below lines together as 1 command
+
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
     | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
     | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
@@ -117,39 +119,13 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
   #and
 
+  #paste the below lines together as 1 command
+
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
     | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
-    | normalize-by-median.py --max-memory-usage 2e9 -C 30 -o P$trim.C$norm.kidney - \
-
-
-> Run Jellyfish on the un-normalized dataset.
-
-::
-
-    mkdir /mnt/jelly
-    cd /mnt/jelly
-    
-    jellyfish count -m 25 -F2 -s 700M -t 4 -C -o trimmed.jf /mnt/trimming/P2.trimmed.fastQ_1P /mnt/trimming/P2.trimmed.fastQ_2P
-    jellyfish histo trimmed.jf -o trimmed.histo
-
-
-> Run Khmer
-
-::
-
-    mkdir /mnt/khmer
-    cd /mnt/khmer
-    interleave-reads.py /mnt/trimming/P2.trimmed.fastQ_1P /mnt/trimming/P2.trimmed.fastQ_2P -o interleaved.fq
-    normalize-by-median.py -p -x 15e8 -k 25 -C 50 --out khmer_normalized.fq interleaved.fq
-
-> Run Khmer on the normalized dataset.
-
-::
-
-    cd /mnt/jelly
-    
-    jellyfish count -m 25 -s 700M -t 4 -C -o khmer.jf /mnt/khmer/khmer_normalized.fq
-    jellyfish histo khmer.jf -o khmer.histo
+    | normalize-by-median.py --max-memory-usage 2e9 -C 30 -o - - \
+    | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | jellyfish histo /dev/stdin -o trimmed.yes.normalize.histo
 
 
 > Open up a new terminal window using the buttons command-t
