@@ -31,17 +31,15 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
 ::
 
-	sudo apt-get update && sudo apt-get upgrade
+	sudo apt-get update && sudo apt-get -y upgrade
 
 
 > Install other software
 
 ::
 
-	apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
+	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
 
-
----
 
 > Install Skewer
 
@@ -63,7 +61,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     cd jellyfish-2.1.3/
     ./configure
     make -j4
-    PATH=$PATH:$(pwd)/bin
+    PATH=$PATH:$(pwd)
 
 > Install seqtk
 
@@ -80,12 +78,8 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
     cd $HOME
-    pip install screed pysam
-    git clone https://github.com/ged-lab/khmer.git
-    cd khmer
-    make -j4
-    sudo make install
-
+    sudo easy_install -U setuptools
+    sudo pip install screed pysam khmer
 
 > Download data and a file with the Illumina adapters, ``TruSeq3-PE.fa``
 
@@ -93,7 +87,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
   cd $HOME
   curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
-  mkdir -p $HOME/reads && $HOME/reads
+  mkdir -p $HOME/reads && cd $HOME/reads
   curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R1.PF.fastq.gz > kidney.1.fq.gz &
   curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz > kidney.2.fq.gz
 
@@ -103,66 +97,38 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 ::
 
 
-    mkdir /mnt/trimming
-    cd /mnt/trimming
+  mkdir $HOME/trimming && cd $HOME/trimming
     
-    #paste the below lines together as 1 command
     
   trim=2
   norm=30
+
+  #paste the below lines together as 1 command
+
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
-    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
-    | jellyfish count -m 25 -F2 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
+    | jellyfish count -m 25 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
     | jellyfish histo /dev/stdin -o trimmed.no.normalize.histo
 
   #and
 
+  #paste the below lines together as 1 command
+
   seqtk mergepe $HOME/reads/kidney.1.fq.gz $HOME/reads/kidney.2.fq.gz \
-    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/reads/TruSeq3-PE.fa - -1 \
-    | normalize-by-median.py --max-memory-usage 2e9 -C 30 -o P$trim.C$norm.kidney - \
-
-
-> Run Jellyfish on the un-normalized dataset.
-
-::
-
-    mkdir /mnt/jelly
-    cd /mnt/jelly
-    
-    jellyfish count -m 25 -F2 -s 700M -t 4 -C -o trimmed.jf /mnt/trimming/P2.trimmed.fastQ_1P /mnt/trimming/P2.trimmed.fastQ_2P
-    jellyfish histo trimmed.jf -o trimmed.histo
-
-
-> Run Khmer
-
-::
-
-    mkdir /mnt/khmer
-    cd /mnt/khmer
-    interleave-reads.py /mnt/trimming/P2.trimmed.fastQ_1P /mnt/trimming/P2.trimmed.fastQ_2P -o interleaved.fq
-    normalize-by-median.py -p -x 15e8 -k 25 -C 50 --out khmer_normalized.fq interleaved.fq
-
-> Run Khmer on the normalized dataset.
-
-::
-
-    cd /mnt/jelly
-    
-    jellyfish count -m 25 -s 700M -t 4 -C -o khmer.jf /mnt/khmer/khmer_normalized.fq
-    jellyfish histo khmer.jf -o khmer.histo
+    | skewer -l 25 -m pe --mean-quality $trim --end-quality $trim -t 8 -x $HOME/TruSeq3-PE.fa - -1 \
+    | normalize-by-median.py --max-memory-usage 4e9 -C 30 -o - - \
+    | jellyfish count -m 25 -s 700M -t 8 -C -o /dev/stdout /dev/stdin \
+    | jellyfish histo /dev/stdin -o trimmed.yes.normalize.histo
 
 
 > Open up a new terminal window using the buttons command-t
 
 ::
 
-	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/mnt/jelly/*histo ~/Downloads/
+	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:$HOME/trimming/*histo ~/Downloads/
 
 
 > Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
-
-
-> Now look at the `.histo` file, which is a kmer distribution. I want you to plot the distribution using R and RStudio.
 
 
 > OPEN RSTUDIO
@@ -171,20 +137,20 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
     #Import all 2 histogram datasets: this is the code for importing 1 of them..
     
-    khmer <- read.table("~/Downloads/khmer.histo", quote="\"")
-    trim <- read.table("~/Downloads/trimmed.histo", quote="\"")
+    y_khmer <- read.table("~/Downloads/trimmed.yes.normalize.histo", quote="\"")
+    n_khmer <- read.table("~/Downloads/trimmed.no.normalize.histo", quote="\"")
     
     #What does this plot show you?? 
     
-    barplot(c(trim$V2[1],khmer$V2[1]),
+    barplot(c(n_khmer$V2[1],y_khmer$V2[1]),
         names=c('Non-normalized', 'C50 Normalized'),
         main='Number of unique kmers')
     
     # plot differences between non-unique kmers
     
-    plot(khmer$V2[10:300] - trim$V2[10:300], type='l',
-        xlim=c(10,300), xaxs="i", yaxs="i", frame.plot=F,
-        ylim=c(-10000,60000), col='red', xlab='kmer frequency',
+    plot(y_khmer$V2[0:300] - n_khmer$V2[0:300], type='l',
+        xlim=c(0,300), xaxs="i", yaxs="i", frame.plot=F,
+        ylim=c(-20000,20000), col='red', xlab='kmer frequency',
         lwd=4, ylab='count',
         main='Diff in 25mer counts of \n normalized vs. un-normalized datasets')
     abline(h=0)
