@@ -21,11 +21,12 @@ The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.
 The Khmer manual: http://khmer.readthedocs.org/en/v1.1
 
 
-> Step 1: Launch and AMI. For this exercise, we will use a c3.xlarge instance. Remember to change the permission of your key code `chmod 400 ~/Downloads/????.pem` (change ????.pem to whatever you named it)
+> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge instance. **ADD A 100GB HARD DRIVE TO YOUR INSTANCE**
 
 ::
 
 	ssh -i ~/Downloads/?????.pem ubuntu@ec2-???-???-???-???.compute-1.amazonaws.com
+
 
 > Update Software
 
