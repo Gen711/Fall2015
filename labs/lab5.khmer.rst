@@ -127,7 +127,7 @@ Seqtk: https://github.com/lh3/seqtk
 
 ::
 
-	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:$HOME/trimming/*histo ~/Downloads/
+	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:/home/ubuntu/trimming/*histo ~/Downloads/
 
 
 > Now, on your MAC, open up RStudio and plot.
