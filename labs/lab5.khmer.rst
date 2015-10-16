@@ -17,8 +17,9 @@ During this lab, we will acquaint ourselves with digital normalization. You will
 
 
 The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.pdf
-
 The Khmer manual: http://khmer.readthedocs.org/en/v1.1
+Skewer: http://www.biomedcentral.com/1471-2105/15/182
+Seqtk: https://github.com/lh3/seqtk
 
 
 > Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge instance. **ADD A 100GB HARD DRIVE TO YOUR INSTANCE**
@@ -62,9 +63,9 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     cd jellyfish-2.1.3/
     ./configure
     make -j4
-    PATH=$PATH:$(pwd)
+    PATH=$PATH:$(pwd)/bin
 
-> Install seqtk
+> Install seqtk. Make sure you look at the seqtk website. This is a really powerful package. 
 
 ::
 
@@ -93,7 +94,7 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
   curl -L https://s3.amazonaws.com/Mc_Transcriptome/Thomas_McBr1_R2.PF.fastq.gz > kidney.2.fq.gz
 
 
-> Trim low quality bases and adapters from dataset. These files will form the basis of all out subsequent analyses.
+> Merge --> Trim low quality bases and adapters from dataset  --> count kmers --> make a histogram. Normalize in the 1nd command. Make sure you know what is going on here!
 
 ::
 
@@ -122,14 +123,14 @@ The Khmer manual: http://khmer.readthedocs.org/en/v1.1
     | jellyfish histo /dev/stdin -o trimmed.yes.normalize.histo
 
 
-> Open up a new terminal window using the buttons command-t
+> Open up a new terminal window using the buttons command-t. You should be entering the ``scp`` command on your local computer (not on AWS). 
 
 ::
 
 	scp -i ~/Downloads/????.pem ubuntu@ec2-??-???-???-??.compute-1.amazonaws.com:$HOME/trimming/*histo ~/Downloads/
 
 
-> Now, on your MAC, find the files you just downloaded - for the zip files - double click and that should unzip them.. Click on the `html` file, which will open up your browser. Look at the results. Try to figure out what each plot means.
+> Now, on your MAC, open up RStudio and plot.
 
 
 > OPEN RSTUDIO
