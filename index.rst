@@ -62,6 +62,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `Khmer paper <http://f1000research.com/articles/4-900/v1>`_
     - `Skewer paper <http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-15-182>`_  
     - `Digital Normalization <http://arxiv.org/pdf/1203.4802v2.pdf>`_
+    - `Assembly <http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/>`_
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
