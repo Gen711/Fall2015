@@ -153,12 +153,10 @@ Seqtk: https://github.com/lh3/seqtk
 
   mkdir ~/transrate && cd transrate
   
-  curl -LO ftp://ftp.ensembl.org/pub/release-82/fasta/mus_musculus/pep/Mus_musculus.GRCm38.pep.all.fa.gz
-  gzip -d Mus_musculus.GRCm38.pep.all.fa.gz
   
   transrate --install-deps=ref
   transrate --left ../reads/1.subsamp_1.fastq --right ../reads/1.subsamp_2.fastq \
-  --threads 16 --reference Mus_musculus.GRCm38.pep.all.fa \
+  --threads 16 \
   --assembly ../trimming/trim2.trinity.Trinity.fasta,../trimming/trim20.corr.trinity.Trinity.fasta,../trimming/trim2.corr.trinity.Trinity.fasta
  
 > Download results, we'll use them next week
