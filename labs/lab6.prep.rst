@@ -124,10 +124,14 @@ Seqtk: https://github.com/lh3/seqtk
   split-paired-reads.py -0 /dev/null trim2.interleaved.cor.fq
   split-paired-reads.py -0 /dev/null trim20.interleaved.cor.fq
 
-> Assemble with trinity. Even though using `--min_kmer_cov 2` seems reasonable (think about what I told you about unique kmers), this almost always makes the assembly worse, expecially in low coverage RNAseq datasets. 
+> Assemble with trinity. **IMPORTANT DETAIL** You're going to be doing 3 different assemblies, eack of which take 1 hour. You could do this 1 at a time, checking back each hour to start the next, but I ma going to show you a new and better way.  
+
+- To do this, copy the 3 commmands into a file you name ``run.sh``. Do this using ``nano``.
+- once you have the commands copied into the file, exit out of nano and get into a tmux window. 
+- once in te tmux window, execute the commands using this: ``sh run.sh``. They will run one after the other and finish in about 3 hours. 
 
 ::
 
   Trinity --output trim2.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
-    Trinity --output trim20.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim20.interleaved.cor.fq.1  --right trim20.interleaved.cor.fq.2 --CPU 16
-      Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fq.1  --right trim2.interleaved.fq.2 --CPU 16
+   Trinity --output trim20.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim20.interleaved.cor.fq.1  --right trim20.interleaved.cor.fq.2 --CPU 16
+   Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fq.1  --right trim2.interleaved.fq.2 --CPU 16
