@@ -112,6 +112,11 @@ Seqtk: https://github.com/lh3/seqtk
 
   perl ~/Rcorrector//run_rcorrector.pl -t 16 -k 25 -i $HOME/trimming/trim2.interleaved.fastq 
 
+> split the interleaved files back into R and L. 
+
+::
+
+  split-paired-reads.py -0 /dev/null trim2.interleaved.cor.fq
 
 > Assemble with trinity. Even though using `--min_kmer_cov 2` seems reasonable (think about what I told you about unique kmers), this almost always makes the assembly worse, expecially in low coverage RNAseq datasets. 
 
