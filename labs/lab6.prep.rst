@@ -86,7 +86,7 @@ Seqtk: https://github.com/lh3/seqtk
 ::
 
   sudo easy_install -U setuptools
-  sudo pip khmer
+  sudo pip install khmer
 
 > download reads
 
