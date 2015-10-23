@@ -40,7 +40,9 @@ Seqtk: https://github.com/lh3/seqtk
 
 ::
 
-	sudo apt-get -y install tmux git curl gcc make g++ python-dev unzip default-jre libboost1.55-all python-pip gfortran libreadline-dev
+	sudo apt-get -y install cmake sparsehash valgrind libboost-atomic1.55-dev libibnetdisc-dev ruby-full gsl-bin \
+	libgsl0-dev libgsl0ldbl libboost1.55-all-dev libboost1.55-dbg subversion tmux git curl bowtie libncurses5-dev \
+	samtools gcc make g++ python-dev unzip dh-autoreconf default-jre python-pip zlib1g-dev
 
 > Install Rcorrector
 
@@ -73,7 +75,21 @@ Seqtk: https://github.com/lh3/seqtk
   PATH=$PATH:$(pwd)
   curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
 
-> Merge --> Trim low quality bases and adapters from dataset  --> count kmers --> make a histogram. Normalize in the 1nd command. Make sure you know what is going on here!
+> install trinity
+
+::
+
+  git clone git clone https://github.com/trinityrnaseq/trinityrnaseq.git
+  cd trinityrnaseq/
+  make -j8
+  PATH=$PATH:$(pwd)
+  
+> install Khmer
+
+::
+
+  sudo easy_install -U setuptools
+  sudo pip khmer
 
 > download reads
 
