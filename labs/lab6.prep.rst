@@ -49,8 +49,18 @@ Seqtk: https://github.com/lh3/seqtk
   cd 
   git clone https://github.com/mourisl/Rcorrector.git
   cd Rcorrector
-  make && sudo make all install
-  PATH:$PATH:$(pwd)
+  make
+  PATH=$PATH:$(pwd)
+
+> install seqtk
+
+::
+
+  cd $HOME
+  git clone https://github.com/lh3/seqtk.git
+  cd seqtk
+  make
+  PATH=$PATH:$(pwd)
 
 > Install Skewer
 
@@ -61,6 +71,7 @@ Seqtk: https://github.com/lh3/seqtk
   cd skewer
   make
   PATH=$PATH:$(pwd)
+  curl -LO https://s3.amazonaws.com/gen711/TruSeq3-PE.fa
 
 > Merge --> Trim low quality bases and adapters from dataset  --> count kmers --> make a histogram. Normalize in the 1nd command. Make sure you know what is going on here!
 
@@ -80,7 +91,7 @@ Seqtk: https://github.com/lh3/seqtk
 ::
 
   seqtk mergepe $HOME/reads/1.subsamp_1.fastq $HOME/reads/1.subsamp_2.fastq \
-    | skewer -l 25 -m pe --mean-quality 2 --end-quality 2 -t 8 -x $HOME/TruSeq3-PE.fa - > $HOME/trimming/trim2.interleaved.fastq
+    | skewer -l 25 -m pe --mean-quality 2 --end-quality 2 -t 8 -x $HOME/skewer/TruSeq3-PE.fa - -1 > $HOME/trimming/trim2.interleaved.fastq
 
 ::
 
