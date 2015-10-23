@@ -18,7 +18,7 @@ Skewer: http://www.biomedcentral.com/1471-2105/15/182
 Seqtk: https://github.com/lh3/seqtk
 
 
-> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge instance. **ADD A 100GB HARD DRIVE TO YOUR INSTANCE**
+> Step 1: Launch and AMI. For this exercise, we will use a **c4.4xlarge** instance. **ADD A 100GB HARD DRIVE TO YOUR INSTANCE**
 
 ::
 
@@ -109,8 +109,11 @@ Seqtk: https://github.com/lh3/seqtk
 
 ::
 
-  perl ~/Rcorrector//run_rcorrector.pl -t 8 -k 25 -i $HOME/trimming/trim2.interleaved.fastq 
+  perl ~/Rcorrector//run_rcorrector.pl -t 16 -k 25 -i $HOME/trimming/trim2.interleaved.fastq 
 
 
-> Assemble with trinity
+> Assemble with trinity. Even though using `--min_kmer_cov 2` seems reasonable (think about what I told you about unique kmers), this almost always makes the assembly worse, expecially in low coverage RNAseq datasets. 
 
+::
+
+  Trinity --seqType fq --min_kmer_cov 2 --max_memory 10G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
