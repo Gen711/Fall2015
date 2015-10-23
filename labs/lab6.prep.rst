@@ -133,5 +133,5 @@ Seqtk: https://github.com/lh3/seqtk
 ::
 
   Trinity --output trim2.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
-   Trinity --output trim20.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim20.interleaved.cor.fq.1  --right trim20.interleaved.cor.fq.2 --CPU 16
-   Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fq.1  --right trim2.interleaved.fq.2 --CPU 16
+  Trinity --output trim20.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim20.interleaved.cor.fq.1  --right trim20.interleaved.cor.fq.2 --CPU 16
+  Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fq.1  --right trim2.interleaved.fq.2 --CPU 16
