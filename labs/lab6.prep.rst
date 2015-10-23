@@ -117,4 +117,4 @@ Seqtk: https://github.com/lh3/seqtk
 
 ::
 
-  Trinity --full_cleanup --seqType fq --min_kmer_cov 2 --max_memory 10G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
+  Trinity --full_cleanup --seqType fq --min_kmer_cov 2 --max_memory 20G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
