@@ -75,7 +75,8 @@ Seqtk: https://github.com/lh3/seqtk
 
 ::
 
-  git clone git clone https://github.com/trinityrnaseq/trinityrnaseq.git
+  cd
+  git clone https://github.com/trinityrnaseq/trinityrnaseq.git
   cd trinityrnaseq/
   make -j8
   PATH=$PATH:$(pwd)
