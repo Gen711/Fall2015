@@ -9,11 +9,7 @@ During this lab, we will acquaint ourselves with digital normalization. You will
 
 2. Quality and adapter trim data sets.
 
-3. Apply digital normalization to the dataset.
-
-4. Count and compare kmers and kmer distributions in the normalized and un-normalized dataset.
-
-5. Plot in RStudio.
+3. Assembly a transcriptome
 
 
 The JellyFish manual: ftp://ftp.genome.umd.edu/pub/jellyfish/JellyfishUserGuide.pdf
@@ -99,18 +95,22 @@ Seqtk: https://github.com/lh3/seqtk
   curl -LO https://s3.amazonaws.com/gen711/1.subsamp_1.fastq
   curl -LO https://s3.amazonaws.com/gen711/1.subsamp_2.fastq
 
+> trimming
+
 ::
 
 
   mkdir $HOME/trimming && cd $HOME/trimming
-    
-::
 
   seqtk mergepe $HOME/reads/1.subsamp_1.fastq $HOME/reads/1.subsamp_2.fastq \
     | skewer -l 25 -m pe --mean-quality 2 --end-quality 2 -t 8 -x $HOME/skewer/TruSeq3-PE.fa - -1 > $HOME/trimming/trim2.interleaved.fastq
+
+> error correct
 
 ::
 
   perl ~/Rcorrector//run_rcorrector.pl -t 8 -k 25 -i $HOME/trimming/trim2.interleaved.fastq 
 
+
+> Assemble with trinity
 
