@@ -106,20 +106,28 @@ Seqtk: https://github.com/lh3/seqtk
   seqtk mergepe $HOME/reads/1.subsamp_1.fastq $HOME/reads/1.subsamp_2.fastq \
     | skewer -l 25 -m pe --mean-quality 2 --end-quality 2 -t 8 -x $HOME/skewer/TruSeq3-PE.fa - -1 > $HOME/trimming/trim2.interleaved.fastq
 
+  seqtk mergepe $HOME/reads/1.subsamp_1.fastq $HOME/reads/1.subsamp_2.fastq \
+    | skewer -l 25 -m pe --mean-quality 20 --end-quality 20 -t 8 -x $HOME/skewer/TruSeq3-PE.fa - -1 > $HOME/trimming/trim20.interleaved.fastq
+
 > error correct
 
 ::
 
   perl ~/Rcorrector//run_rcorrector.pl -t 16 -k 25 -i $HOME/trimming/trim2.interleaved.fastq 
+  perl ~/Rcorrector//run_rcorrector.pl -t 16 -k 25 -i $HOME/trimming/trim20.interleaved.fastq 
 
 > split the interleaved files back into R and L. 
 
 ::
 
+  split-paired-reads.py -0 /dev/null trim2.interleaved.fastq
   split-paired-reads.py -0 /dev/null trim2.interleaved.cor.fq
+  split-paired-reads.py -0 /dev/null trim20.interleaved.cor.fq
 
 > Assemble with trinity. Even though using `--min_kmer_cov 2` seems reasonable (think about what I told you about unique kmers), this almost always makes the assembly worse, expecially in low coverage RNAseq datasets. 
 
 ::
 
-  Trinity --full_cleanup --seqType fq --min_kmer_cov 2 --max_memory 20G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
+  Trinity --output trim2.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.cor.fq.1  --right trim2.interleaved.cor.fq.2 --CPU 16
+    Trinity --output trim20.corr.trinity --full_cleanup --seqType fq --max_memory 20G --left trim20.interleaved.cor.fq.1  --right trim20.interleaved.cor.fq.2 --CPU 16
+      Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fq.1  --right trim2.interleaved.fq.2 --CPU 16
