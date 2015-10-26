@@ -69,6 +69,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `Assembly <http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2874646/>`_
     - `Everything you wanted to know about everything (CS oriented)  <http://www.langmead-lab.org/teaching-materials/>`_
     - `Seq Assembly Demystified <http://folk.uio.no/jonkl/StuffForMBV-INFx410/Articles/NNagarajan.pdf>`_
+    - `How to Assemble a genome videos <https://www.youtube.com/playlist?list=PLQ-85lQlPqFNGdaeGpV8dPEeSm3AChb6L>`_
+    - `Full Bioinformatics video series <https://www.youtube.com/user/bioinfalgorithms/playlists>`_
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
