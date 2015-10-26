@@ -74,6 +74,7 @@ Genetics 711/811 | Bioinformatics and Genomics
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
+    - :doc:`files/hw2` Due date: 30Oct15
 
 9. Exams
 

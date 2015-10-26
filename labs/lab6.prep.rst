@@ -1,5 +1,5 @@
 ========================================
-Lab 5: setup for transcriptome assembly
+Lab 6: setup for transcriptome assembly
 ========================================
 
 
@@ -137,3 +137,31 @@ Seqtk: https://github.com/lh3/seqtk
   Trinity --output trim2.trinity --full_cleanup --seqType fq --max_memory 20G --left trim2.interleaved.fastq.1  --right trim2.interleaved.fastq.2 --CPU 16
 
 > Fast forward 3 hours, things should be done.
+
+> IN YOUR TMUX WINDOW, install Transrate
+
+::
+
+  cd
+  curl -LO https://bintray.com/artifact/download/blahah/generic/transrate-1.0.1-linux-x86_64.tar.gz
+  tar -zxf transrate-1.0.1-linux-x86_64.tar.gz
+  PATH=$PATH:/home/ubuntu/transrate-1.0.1-linux-x86_64
+  
+> run transrate
+
+::
+
+  mkdir ~/transrate && cd transrate
+  
+  
+  transrate --install-deps=ref
+  transrate --left ../reads/1.subsamp_1.fastq --right ../reads/1.subsamp_2.fastq \
+  --threads 16 \
+  --assembly ../trimming/trim2.trinity.Trinity.fasta,../trimming/trim20.corr.trinity.Trinity.fasta,../trimming/trim2.corr.trinity.Trinity.fasta
+ 
+> Download results, we'll use them next week
+
+::
+
+  scp -i your.pem ubuntu@---:/home/ubuntu/transrate/transrate_results/*csv ~/Downloads/
+  scp -i your.pem ubuntu@---:/home/ubuntu/trimming/*fasta ~/Downloads/
