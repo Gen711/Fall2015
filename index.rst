@@ -38,7 +38,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Lecture 15Oct15 Diginorm <files/Lec_16Oct15.pdf>`
     -  :download:`Lecture 19Oct15 <files/Lec_19Oct15.pdf>`
     -  :download:`Lecture 21Oct15 <files/Lec_21Oct15.pdf>`
-
+    -  :download:`Lecture 28Oct15 <files/Lec_28Oct15.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
