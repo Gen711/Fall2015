@@ -1,6 +1,6 @@
-========================================
+====================================
 Lab 7: Analyze transcriptome
-========================================
+====================================
 
 
 
@@ -66,18 +66,25 @@ BUSCO: http://busco.ezlab.org/ and http://bioinformatics.oxfordjournals.org/cont
 
   mkdir $HOME/busco && cd $HOME/busco
   ln -s $HOME/BUSCO_v1.1b1/metazoa .
+
+  #do this one
+
   python3 ~/BUSCO_v1.1b1/BUSCO_v1.1b1.py -g ../assembly/trim20.corr.trinity.Trinity.fasta -m Trans --cpu 8 -o trim20 -l metazoa
 
-  and 
+  #or this one
 
   python3 ~/BUSCO_v1.1b1/BUSCO_v1.1b1.py -g ../assembly/trim2.corr.trinity.Trinity.fasta -m Trans --cpu 8 -o trim2 -l metazoa
 
 > look at BUSCO results
 
+::
+
+  #do whichever of these commands that pertain to the BUSCO run you chose to do above. 
+
   more run_trim20/short*
   more run_trim2/short*
 
-> What is a BUSCO anyway - see http://bioinformatics.oxfordjournals.org/content/31/19/3210. HOw do the assemblies differ?
+> What is a BUSCO anyway - see http://bioinformatics.oxfordjournals.org/content/31/19/3210. How do the assemblies differ?
 
 =======================
 TERMINATE YOUR INSTANCE
