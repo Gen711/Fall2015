@@ -51,6 +51,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Lab 2Oct15: :doc:`labs/lab4.trimming`
     - Lab 15Oct15: :doc:`labs/lab5.khmer`
     - Lab 23Oct15: :doc:`labs/lab6.prep`
+    - Lab 30Oct15: :doc:`labs/lab4.analyze`
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
@@ -71,6 +72,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `Seq Assembly Demystified <http://folk.uio.no/jonkl/StuffForMBV-INFx410/Articles/NNagarajan.pdf>`_
     - `How to Assemble a genome videos <https://www.youtube.com/playlist?list=PLQ-85lQlPqFNGdaeGpV8dPEeSm3AChb6L>`_
     - `Full Bioinformatics video series <https://www.youtube.com/user/bioinfalgorithms/playlists>`_
+    - `BUSCO paper <http://bioinformatics.oxfordjournals.org/content/31/19/3210>`_
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
