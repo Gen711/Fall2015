@@ -15,7 +15,7 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly
 
 The BWA manual: http://bio-bwa.sourceforge.net/ 
 
-Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
+Flag info: http://broadinstitute.github.io/picard/explain-flags.html
 
 
 > Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge machine. 
@@ -63,7 +63,15 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
     PATH=$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin
     echo '$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin' >> ~/.profile
 
+> Install SAMBAMBA
 
+::
+
+  cd $HOME
+  curl -LO https://github.com/lomereiter/sambamba/releases/download/v0.5.8/sambamba_v0.5.8_linux.tar.bz2
+  tar -jxf sambamba_v0.5.8_linux.tar.bz2
+  sudo mv sambamba_v0.5.8 /usr/bin/sambamba_v0.5.8
+  chmod a+x /usr/bin/sambamba_v0.5.8
 
 > Download data
 
@@ -91,7 +99,9 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
     cd $HOME/mapping
     tmux new -s mapping
     bwa index -p index $HOME/data/brain.final.fasta
-    time bwa mem -t8 index $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq > brain.sam
+    time bwa mem -t8 index $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq \
+    | sambamba_v0.5.8 view -l 0 -t 8 -S -f bam -o /dev/stdout /dev/stdin \
+    | sambamba_v0.5.8 sort -l 0 -t 8 -m 15G -o brain.bam /dev/stdin
 
 
 > Look at SAM file. 
@@ -101,31 +111,15 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
     #Take a quick general look.
 
-    head brain.sam
-    tail brain.sam
+    sambamba_v0.5.8 view brain.bam | head
     
-    #Count how many reads in fastq files. `grep -c` counts the number of occurances of the pattern, which in this case is `^@`. I am looking for lines that begin with (specified by `^`) the @ character. 
-    
-    grep -c ^@ ../data/SRR1575395_1.fastq ../data/SRR1575395_2.fastq
-    
-    #count number of reads mapping with Flag 65/67. The 1st part of this command `awk`, pulls out the second column of the files, and counts everthing that has either 65 or 67. What do these flags correspond to?   
-    
-    awk '{print $2}' brain.sam | grep ^6 | grep -c '65\|67'
-    
-    #why do we need the `grep ^6` thing in there... try `awk '{print $2}' brain.sam | grep '65\|67' | wc -l`
-    
-    #what about this??
-    
-    awk '{print $2}' brain.sam | grep '^65\|^67' | wc -l
 
 
-> Can you pull out the number of mismatches targeting the NM tag in column 12?
+> look at mapping stats
 
 ::
 
-       #I'm giving you the last bit of the awk code. You have to figure out the 1st awk command and the 1st grep command. This will send the number of mismatches to a file `mismatches.txt`. Can you download it to your usb or HD and plot the results, find the mean number of mismatches, etc??
-
-	awk | grep | awk -F ":" '{print $3}' > mismatches.txt
+  sambamba_v0.5.8 flagstat brain.bam
 
 =======================
 TERMINATE YOUR INSTANCE
