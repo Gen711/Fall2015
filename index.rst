@@ -53,6 +53,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Lab 15Oct15: :doc:`labs/lab5.khmer`
     - Lab 23Oct15: :doc:`labs/lab6.prep`
     - Lab 30Oct15: :doc:`labs/lab7.analyze`
+    - Lab 6Nov15: :doc:`labs/lab8.mapping`
 
 7. Reading
     - Lab reading for 9/4. PCFB Chapter 4: See Matt if you don't have a copy of the book yet. 
