@@ -15,10 +15,9 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly
 
 The BWA manual: http://bio-bwa.sourceforge.net/ 
 
-Flag info: http://broadinstitute.github.io/picard/explain-flags.html
 
 
-> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge machine. 
+> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge machine. Add 100Gb storage.
 
 ::
 
@@ -40,7 +39,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
 	sudo apt-get -y install subversion tmux git curl samtools gcc make g++ python-dev unzip dh-autoreconf default-jre zlib1g-dev
 
 
-> INSTALL BWA
+> INSTALL BWA - this is a mapper
 
 ::
 
@@ -52,7 +51,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
     echo 'PATH=$PATH:$(pwd)' >> ~/.profile
 
 
->INSTALL SRATOOLKIT
+>INSTALL SRATOOLKIT - this tool lets you work with SRA files
 
 ::
 
@@ -63,7 +62,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
     PATH=$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin
     echo '$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin' >> ~/.profile
 
-> Install SAMBAMBA
+> Install SAMBAMBA - helps process SAM/BAM files
 
 ::
 
@@ -91,7 +90,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
 	fastq-dump --split-files --split-spot SRR1575395.sra
 
 
-> Map reads!! (20 minutes)
+> Map reads!! (17 minutes). You're mapping to a mouse brain transcriptome reference.
 
 ::
 
@@ -99,12 +98,9 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
     cd $HOME/mapping
     tmux new -s mapping
     bwa index -p index $HOME/data/brain.final.fasta
-    time bwa mem -t8 index $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq \
-    | sambamba_v0.5.8 view -l 0 -t 8 -S -f bam -o /dev/stdout /dev/stdin \
-    | sambamba_v0.5.8 sort -l 0 -t 8 -m 15G -o brain.bam /dev/stdin
+    time bwa mem -t8 index $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq | sambamba_v0.5.8 view -t 8 -S -f bam -o brain.bam /dev/stdin
 
-
-> Look at SAM file. 
+> Look at BAM file. Can you see the columns that we talked about in class? 
 
 
 ::
@@ -115,7 +111,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html
     
 
 
-> look at mapping stats
+> look at mapping stats. Figure out what this means. 
 
 ::
 
