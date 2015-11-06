@@ -18,7 +18,7 @@ The BWA manual: http://bio-bwa.sourceforge.net/ 
 Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
 
-> Step 1: Launch and AMI. For this exercise, we will use a <span style="color: #ff0000;"><strong>c3.2xlarge</strong></span> (yet another instance type). Remember to change the permission of your key code `chmod 400 ~/Downloads/????.pem` (change ????.pem to whatever you named it)
+> Step 1: Launch and AMI. For this exercise, we will use a c4.2xlarge machine. 
 
 ::
 
@@ -31,13 +31,13 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
 ::
 
-	sudo apt-get update && apt-get -y upgrade
+	sudo apt-get update && sudo apt-get -y upgrade
 
 > Install other software
 
 ::
 
-	apt-get -y install subversion tmux git curl samtools gcc make g++ python-dev unzip dh-autoreconf default-jre zlib1g-dev
+	sudo apt-get -y install subversion tmux git curl samtools gcc make g++ python-dev unzip dh-autoreconf default-jre zlib1g-dev
 
 
 > INSTALL BWA
@@ -69,8 +69,8 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
 ::
 
-    mkdir /mnt/data
-    cd /mnt/data
+    mkdir $HOME/data
+    cd $HOME/data
     curl -LO http://datadryad.org/bitstream/handle/10255/dryad.72141/brain.final.fasta
     curl -LO ftp://ftp-trace.ncbi.nlm.nih.gov/sra/sra-instant/reads/ByRun/sra/SRR/SRR157/SRR1575395/SRR1575395.sra
 
@@ -79,7 +79,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
 ::
 
-	cd /mnt/data
+	cd $HOME/data
 	fastq-dump --split-files --split-spot SRR1575395.sra
 
 
@@ -87,11 +87,11 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
 
 ::
 
-    mkdir /mnt/mapping
-    cd /mnt/mapping
+    mkdir $HOME/mapping
+    cd $HOME/mapping
     tmux new -s mapping
-    bwa index -p index /mnt/data/brain.final.fasta
-    bwa mem -t8 index /mnt/data/SRR1575395_1.fastq /mnt/data/SRR1575395_2.fastq > brain.sam
+    bwa index -p index $HOME/data/brain.final.fasta
+    time bwa mem -t8 index $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq > brain.sam
 
 
 > Look at SAM file. 
@@ -126,3 +126,7 @@ Flag info: http://broadinstitute.github.io/picard/explain-flags.html</a>
        #I'm giving you the last bit of the awk code. You have to figure out the 1st awk command and the 1st grep command. This will send the number of mismatches to a file `mismatches.txt`. Can you download it to your usb or HD and plot the results, find the mean number of mismatches, etc??
 
 	awk | grep | awk -F ":" '{print $3}' > mismatches.txt
+
+=======================
+TERMINATE YOUR INSTANCE
+=======================
