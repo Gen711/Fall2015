@@ -108,8 +108,8 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly 
 ::
 
   cd $HOME/quant
-  salmon index -t $HOME/data/brain.final.fasta -i transcripts_index --type quasi -k 31
-  salmon quant -p 8 -i transcripts_index -l MSR -1 $HOME/data/SRR1575395_1.fastq -2 $HOME/data/SRR1575395_1.fastq -o salmon_output
+  ~/salmon-0.5.1/bin/salmon index -t $HOME/data/brain.final.fasta -i transcripts_index --type quasi -k 31
+  ~/salmon-0.5.1/bin/salmon quant -p 8 -i transcripts_index -l MSR -1 $HOME/data/SRR1575395_1.fastq -2 $HOME/data/SRR1575395_1.fastq -o salmon_output
 
 
 > look at estimates of TPM 
