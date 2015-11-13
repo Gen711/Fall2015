@@ -98,7 +98,7 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly 
 ::
 
     mkdir $HOME/quant
-    cd $HOME/mapping
+    cd $HOME/quant
     kallisto index -i transcripts.idx $HOME/data/brain.final.fasta
     kallisto quant -t 8 -i transcripts.idx -o kallisto_output -b 100 $HOME/data/SRR1575395_1.fastq $HOME/data/SRR1575395_2.fastq
 
@@ -107,7 +107,7 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly 
 
 ::
 
-  cd $HOME/mapping
+  cd $HOME/quant
   salmon index -t $HOME/data/brain.final.fasta -i transcripts_index --type quasi -k 31
   salmon quant -p 8 -i transcripts_index -l MSR -1 $HOME/data/SRR1575395_1.fastq -2 $HOME/data/SRR1575395_1.fastq -o salmon_output
 
