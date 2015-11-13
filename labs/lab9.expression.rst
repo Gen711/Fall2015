@@ -13,7 +13,6 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly 
 4. look at mapping quality
 
 
-The BWA manual: http://bio-bwa.sourceforge.net/ 
 
 
 
@@ -39,7 +38,7 @@ The BWA manual: http://bio-bwa.sourceforge.net/
 	sudo apt-get -y install subversion tmux git curl samtools gcc make g++ python-dev unzip dh-autoreconf default-jre zlib1g-dev cmake libhdf5-dev libboost1.55-all-dev libboost1.55-dbg
 
 
-> INSTALL BWA - this is a mapper
+> INSTALL Kallisto
 
 ::
 
