@@ -73,7 +73,7 @@ During this lab, we will acquaint ourselves with de novo transcriptome assembly 
     wget http://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/2.4.2/sratoolkit.2.4.2-ubuntu64.tar.gz
     tar -zxf sratoolkit.2.4.2-ubuntu64.tar.gz
     PATH=$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin
-    echo "$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin" >> ~/.profile
+    echo "PATH=$PATH:/home/ubuntu/sratoolkit.2.4.2-ubuntu64/bin" >> ~/.profile
 
 > Download data
 
