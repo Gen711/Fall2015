@@ -6,7 +6,7 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 
 
 
-1. Launch a ``c4.2xlarge`` instance.  _______ 5 points
+1. Launch a ``c4.2xlarge`` instance with an additional 100Gb HD.  _______ 5 points
 
 |
 |
