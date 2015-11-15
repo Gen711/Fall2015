@@ -21,7 +21,8 @@ To help you prepare for the exam practical, let's do a mock exam. These are the 
 |
 |
 
-5. Trim at Phred2, error correct using Rcorrector, and assemble using Trinity. 
+5. Trim at Phred2, error correct using Rcorrector, and assemble using Trinity. 10 points
+
 |
 |
 
