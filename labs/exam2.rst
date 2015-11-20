@@ -9,7 +9,7 @@ You'll be running BUSCO. You may or may not find this useful: http://busco.ezlab
 |
 |
 
-2. Install BUSCO as per lab 7. _______ 5 points
+2. Install BUSCO and augustus as per lab 7. _______ 5 points
 
 
 |
