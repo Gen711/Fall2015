@@ -90,3 +90,4 @@ Genetics 711/811 | Bioinformatics and Genomics
     - Yikes!!!: :doc:`labs/mock.exam1`
     - Utter Panic: :doc:`labs/mock.exam2`
     - Practice for exam2: :doc:`labs/Exam2_Practice`
+    - The real deal exam 2: :doc:`labs/exam2`
