@@ -81,6 +81,8 @@ Genetics 711/811 | Bioinformatics and Genomics
     - `How to Assemble a genome videos <https://www.youtube.com/playlist?list=PLQ-85lQlPqFNGdaeGpV8dPEeSm3AChb6L>`_
     - `Full Bioinformatics video series <https://www.youtube.com/user/bioinfalgorithms/playlists>`_
     - `BUSCO paper <http://bioinformatics.oxfordjournals.org/content/31/19/3210>`_
+    - `Explain Shell <http://explainshell.com/>`_
+    - `Command Line Bootcamp <http://rik.smith-unna.com/command_line_bootcamp>`_
 
 8. Homework
     - :doc:`files/hw1` Due date: 18Sept15
