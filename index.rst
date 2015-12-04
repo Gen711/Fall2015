@@ -45,6 +45,7 @@ Genetics 711/811 | Bioinformatics and Genomics
     -  :download:`Lecture 16Nov15 <files/Lec_16Nov15.pdf>`
     -  :download:`Lecture 18Nov15 <files/Lec_18Nov15.pdf>`
     -  :download:`Lecture 30Nov15 <files/Lec_30Nov15.pdf>`
+    -  :download:`Final Lecture <files/2015-final-lecture.pdf>`
     
 6. Lab lessons
     - :doc:`labs/getting_started`
